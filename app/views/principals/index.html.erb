@@ -43,13 +43,25 @@
 				</a>
 				<!-- Name of the website can be changed here-->
 				<a class="brand" href="#">Domotica</a>
+				<ul class="nav">
+				<li class="active"><a href="#"> <i class="icon-home"></i>Principal</a></li>
+				<li><a href="#"><i class="icon-tag"></i>Caracteristicas</a></li>
+				</ul>
 				<div class="nav-collapse collapse pull-right">
 					<ul class="nav">
-						<li class="active"><a href="#"> <i class="icon-home"></i>Principal</a></li>
-						<li><a href="#"><i class="icon-tag"></i>Caracteristicas</a></li>
-						<li><a href="#">Registrarse</a></li>
-						<li><a href="#">Ingresar</a></li>
-						<li><a href="#">Contacto</a></li>
+						
+						
+							<% if user_signed_in? %>  
+				    		<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
+				    		<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+					  		<% else %>  
+					  		    <li><%= link_to "Sign up", new_user_registration_path %> |
+					    	    <%= link_to "Sign in", new_user_session_path %></li>
+					  		<% end %>
+						</li>
+						<div id="registro">  
+				  		  
+						</div> 
 					</ul>
 				</div>
 			</div>
