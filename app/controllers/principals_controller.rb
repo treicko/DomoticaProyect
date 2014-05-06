@@ -1,5 +1,5 @@
 class PrincipalsController < ApplicationController
-	resourcify
+	#resourcify
 	def index
      
 	end
