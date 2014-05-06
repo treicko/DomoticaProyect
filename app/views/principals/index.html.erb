@@ -48,8 +48,7 @@
 				<li><a href="#"><i class="icon-tag"></i>Caracteristicas</a></li>
 				</ul>
 				<div class="nav-collapse collapse pull-right">
-					<ul class="nav">
-						
+					<ul class="nav">				
 						
 							<% if user_signed_in? %>  
 				    		<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
@@ -59,9 +58,6 @@
 					    	    <%= link_to "Sign in", new_user_session_path %></li>
 					  		<% end %>
 						</li>
-						<div id="registro">  
-				  		  
-						</div> 
 					</ul>
 				</div>
 			</div>
