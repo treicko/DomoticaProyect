@@ -1,0 +1,15 @@
+<%= form_for([@location, @thermostat]) do |f| %>
+  
+  <div class="field">
+    <%= f.label "Numero de serie" %><br>
+    <%= f.number_field :serial_number %>
+  </div>
+    <div class="field">
+    <%= f.label :Lugar %><br>
+    <%= f.text_field :place %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

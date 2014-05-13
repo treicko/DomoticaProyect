@@ -1,0 +1,31 @@
+<h1>Listing thermostats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serial number</th>
+      <th>Location</th>
+      <th>Place</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thermostats.each do |thermostat| %>
+      <tr>
+        <td><%= thermostat.serial_number %></td>
+        <td><%= thermostat.location_id %></td>
+        <td><%= thermostat.place %></td>
+        <td><%= link_to 'Show', thermostat %></td>
+        <td><%= link_to 'Edit', edit_thermostat_path(thermostat) %></td>
+        <td><%= link_to 'Destroy', thermostat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Thermostat', new_thermostat_path %>

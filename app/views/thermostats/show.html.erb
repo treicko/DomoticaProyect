@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @thermostat.serial_number %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @thermostat.location_id %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @thermostat.place %>
+</p>
+
+<%= link_to 'Edit', edit_thermostat_path(@thermostat) %> |
+<%= link_to 'Back', thermostats_path %>
