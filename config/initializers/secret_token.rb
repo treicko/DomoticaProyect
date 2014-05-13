@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-DomoticaProyect::Application.config.secret_key_base = '6e94a42287b1a45c6083c905bd1576b57207facdf412440e25940e31b9047cbd1b55af21ddbb928ae3f732f1dab2d609114e13b5f6009cc551875db8f5855cfe'
+DomoticaProyect::Application.config.secret_key_base = 'b2e415bf2aad94ee59848c9689592965f99b79535a83cbbeb2dbc6b6a660cc01d95ac627b6c6f1a3ee926222351320e92cd5e93977595790470995019ddbadd6'

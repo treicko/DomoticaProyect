@@ -49,8 +49,7 @@
 				</ul>
 				<div class="nav-collapse collapse pull-right">
 					<ul class="nav">				
-						
-							<% if user_signed_in? %>  
+						<% if user_signed_in? %>  
 				    		<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
 				    		<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 					  		<% else %>  
