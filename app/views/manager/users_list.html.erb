@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="bs-docs-section">
+    <h2 id="tables" class="page-header">Lista De Usuarios</h2>
+    <div class="bs-example">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Habilitar</th>
+            <th>Deshabilitar</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% cont=1 %>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= cont %></td>
+              <td><%= user.email %></td>
+              <td><a href="/posts/ver_historico"><i class="icon-lock"></a></td>
+              <td><a href="/posts/ver_historico"><i class="icon-unlock"><font color="sky blue">Ver Historico</font></a></td>
+              <% cont=cont+1 %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
