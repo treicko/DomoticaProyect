@@ -26,13 +26,13 @@
         <td>
           <% @thermostats.each do |t| %>
               <%= image_tag "thermostat.png", size: "120x90" %>
-              <%= t.place %><!--AQUI VAN LAS LECTURAS-->
+              <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
           <% end %>
         </td>
         <td></td>
         <td>
           <%= link_to 'Add Thermostat', location %> |
-          <%= link_to 'Edit', edit_location_path(location) %> |
+
           <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
