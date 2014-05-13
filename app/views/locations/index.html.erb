@@ -1,0 +1,45 @@
+<h1>Listing locations</h1>
+ <table>
+  <thead>
+    <tr>
+      <th>My location</th>
+      <th></th>
+      <th>My places</th>
+      <!--<th>User</th>-->
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @locations.each do |location| %>
+      <% @thermostats = Thermostat.where(:location_id => location.id) %>
+      <tr>
+        <td>
+          <%= image_tag "casa.png", size: "120x90" %><center><%= location.address %><center>
+        </td>
+        <td>))))))))</td>
+        <td>
+          <% @thermostats.each do |t| %>
+              <%= image_tag "thermostat.png", size: "120x90" %>
+              <%= t.place %><!--AQUI VAN LAS LECTURAS-->
+          <% end %>
+        </td>
+        <td></td>
+        <td>
+          <%= link_to 'Add Thermostat', location %> |
+          <%= link_to 'Edit', edit_location_path(location) %> |
+          <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Location', new_location_path %>
