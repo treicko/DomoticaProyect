@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @thermostat = Location.find(params[:id])
   end
 
   # POST /locations

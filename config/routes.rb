@@ -11,6 +11,8 @@ DomoticaProyect::Application.routes.draw do
     resources :thermostats  
   end
 
+  get '/temperatures/edit/:id' => 'temperatures#edit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

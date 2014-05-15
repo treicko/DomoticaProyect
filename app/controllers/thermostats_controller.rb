@@ -66,4 +66,16 @@ class ThermostatsController < ApplicationController
   def thermostat_params
     params.require(:thermostat).permit(:serial_number, :location_id, :place)
   end
+
+  #def show_configureTemp
+  #   @thermostat = Post.find(params[:id])
+  #end
+
+  def set_temperature
+    
+
+  end 
+
+
+
 end

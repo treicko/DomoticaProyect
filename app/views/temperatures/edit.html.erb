@@ -1,0 +1,11 @@
+<h1>CONFIGURACION DE TEMPERATURA</h1>
+<form action="/temperatures/edit/<%= @thermostat.id  %>" method="post">
+  temperatura:
+  <input type="text" name="temperatura[temp_basica]"><br>
+  dia:
+  <input type="text" name="temperatura[nombre]"><br>
+  hora inicio:
+  <input type="text" name="temperatura[hora_ini]"><br>
+  hora fin:
+  <input type="text" name="temperatura[hora_fin]"><br>
+</form>
