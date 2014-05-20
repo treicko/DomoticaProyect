@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
     
   # GET /locations
   # GET /locations.json
@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @thermostat = Location.find(params[:id])
   end
 
   # POST /locations

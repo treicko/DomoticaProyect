@@ -21,6 +21,7 @@
         <td><%= link_to 'Show', thermostat %></td>
         <td><%= link_to 'Edit', edit_thermostat_path(thermostat) %></td>
         <td><%= link_to 'Destroy', thermostat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--<td><a href="/thermostats/show_configureTemp/<%= thermostat.id %>">Configurar temperatura</td>-->
       </tr>
     <% end %>
   </tbody>

@@ -29,7 +29,7 @@
         <td>
           <% @thermostats.each do |t| %>
               <%= image_tag "thermostat.png", size: "120x90" %>
-              <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
+              <td><a href="/temperatures/edit/<%= t.id %>">Configurar temperatura</td>
           <% end %>
         </td>
          <td>
