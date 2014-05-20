@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20140515151751) do
     t.datetime "updated_at"
   end
 
+  create_table "thermostat_histories", force: true do |t|
+    t.integer  "thermostat_id"
+    t.integer  "temperature"
+    t.integer  "humidity"
+    t.integer  "consumption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "thermostats", force: true do |t|
     t.integer  "serial_number"
     t.integer  "location_id"
