@@ -2,21 +2,29 @@
 <html>
 <head>
   <title>Casasmart</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
 
-  <link href="http://bootstrapguru.com/preview/ported/css/bootstrap.css" rel="stylesheet" media="screen">
-		<link href="http://bootstrapguru.com/preview/ported/css/style.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/font-awesome.min.css">
-		<!--[if IE 7]>
-			<link rel="stylesheet" href="css/font-awesome-ie7.css">
-		<![endif]-->	
-		<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/animate.css">
-		<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/jquery.easy-pie-chart.css">
+
+
+    <script src="jquery-1.11.1.js"></script>
+    <script src="jquery-ui-1.10.4.js"></script>
+
+
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+
+	  <link href="http://bootstrapguru.com/preview/ported/css/bootstrap.css" rel="stylesheet" media="screen">
+	  <link href="http://bootstrapguru.com/preview/ported/css/style.css" rel="stylesheet" media="screen">
+	  <link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/animate.css">
+	  <link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/jquery.easy-pie-chart.css">
+	  <link rel="stylesheet" href="jquery-ui-1.10.4.css">
+
+
 
 </head>
 <body>
+
 
 <!-- Navigation bar starts here-->
 <div class="navbar navbar-inverse">
@@ -38,8 +46,7 @@
 	    		<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
 	    		<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 		  	<% else %>  
-	  		    <li><%= link_to "Sign up", new_user_registration_path %> |
-	    	    <%= link_to "Sign in", new_user_session_path %></li>
+	  		    <li><%= link_to "Sign up", new_user_registration_path %> |   <%= link_to "Sign in", new_user_session_path %></li>
 		  	<% end %>
 		</div>
 	</div>
@@ -91,7 +98,7 @@
 	</div>
 </div>
 </footer>
-
+<!--
 <script type="text/javascript">
 	$(function() {
 		$('.chart0').easyPieChart({
@@ -135,6 +142,6 @@
 		});
 	});
 </script>
-
+ -->
 </body>
 </html>
