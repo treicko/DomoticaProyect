@@ -6,9 +6,11 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Email</th>
-            <th>Habilitar</th>
-            <th>Deshabilitar</th>
+            <th><center>Email</center></th>
+            <th><center>Ver</center></th>
+            <th><center>Eliminar</center></th>
+            <th><center>Habilitar</center></th>
+            <th><center>Deshabilitar</center></th>
           </tr>
         </thead>
 
@@ -18,8 +20,10 @@
             <tr>
               <td><%= cont %></td>
               <td><%= user.email %></td>
-              <td><a href="/posts/ver_historico"><i class="icon-lock"></a></td>
-              <td><a href="/posts/ver_historico"><i class="icon-unlock"><font color="sky blue">Ver Historico</font></a></td>
+              <td><a href="/manager/show_user/<%= user.id %>"><center><i class="icon-eye-open icon-2x"></center></a></td>
+              <td><a href="/manager/delete_user/<%= user.id %>"><center><i class="icon-trash icon-2x"></center></a></td>
+              <td><a href="/manager/enable_user/<%= user.id %>"><center><i class="icon-unlock icon-2x"></center></a></td>
+              <td><a href="/manager/disable_user/<%= user.id %>"><center><i class="icon-lock icon-2x"></center></a></td>
               <% cont=cont+1 %>
             </tr>
           <% end %>
