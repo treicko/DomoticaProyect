@@ -6,9 +6,9 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-  <link href="http://bootstrapguru.com/preview/ported/css/bootstrap.css" rel="stylesheet" media="screen">
+    <!--<link href="http://bootstrapguru.com/preview/ported/css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href="http://bootstrapguru.com/preview/ported/css/style.css" rel="stylesheet" media="screen">
-	<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/font-awesome.min.css">-->
 	<!--[if IE 7]>
 		<link rel="stylesheet" href="css/font-awesome-ie7.css">
 	<![endif]-->	
@@ -19,31 +19,34 @@
 <body>
 
 <!-- Navigation bar starts here-->
+
 <div class="navbar navbar-inverse">
-	<div class="navbar-inner">
-		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	
-		</a>
-		<!-- Name of the website can be changed here-->
-		<a class="brand" href="#">Domotica</a>
-		
-		<ul class="nav">
-		<li class="active"><a href="#"> <i class="icon-home"></i>Principal</a></li>
-		<li><a href="#"><i class="icon-tag"></i>Caracteristicas</a></li>
-		<li><a href="/manager/users_list"><i class="icon-group"></i>Usuarios</a></li>
-		<li><a href="/clients"><i class="icon-group"></i>CLientes</a></li>
-		</ul>
-		
-		<div class="nav navbar-nav navbar-right">		
-			<% if user_signed_in? %>  
-	    		<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
-	    		<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-		  	<% else %>  
-	  		    <li><%= link_to "Registrarse", new_user_registration_path %></li>
-	  		    <li><%= link_to "Ingresar", new_user_session_path %></li>
-		  	<% end %>
-		</div>
-	</div>
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">Domotica</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-inverse-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/manager/users_list"><i class="icon-group"></i>Usuarios</a></li>
+	  <li><a href="/clients"><i class="icon-group"></i>CLientes</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li class="divider"></li>
+          <li class="dropdown-header">Dropdown header</li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      	<% if user_signed_in? %>  
+			<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
+			<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+  		<% else %>  
+		    <li><%= link_to "Registrarse", new_user_registration_path %></li>
+		    <li><%= link_to "Ingresar", new_user_session_path %></li>
+  		<% end %>
+    </ul>
+  </div>
 </div>
 
 <!-- Navigation bar ends here-->
@@ -54,43 +57,7 @@
 
 <!--Footer part starts here-->
 <footer class="bs-docs-footer">
-<div class="footer">
-	<div class="container">
-		<div class="row-fluid">
-			<span class="span2"></span>
-			<!-- Change # to social links of your profile-->
-			<span class="span1"><a href="#"> <i class=" icon-twitter icon-4x"></i></a> </span>
-			<span class="span1"> <a href="#"><i class=" icon-google-plus icon-4x"></i></a> </span>
-			<span class="span1"><a href="#"> <i class=" icon-facebook-sign icon-4x"></i></a> </span>
-			<span class="span1"> <a href="#"><i class=" icon-linkedin icon-4x"></i></a> </span>
-			<div class="span6"> 
-				<!--<form class="form-horizontal">
-					<div class="control-group">
-						<div class="controls">
-							<div class="input-prepend">
-								<span class="add-on icon-envelope"></span>
-								<input class="span14" id="prependedInput" type="text" placeholder="Email Address">
-							</div>
-						</div>
-					</div>
-					<div class="control-group">
-						<div class="controls">
-							<label class="checkbox">  <input type="checkbox"> Receive newsletters ? </label>
-							<button type="submit" class="btn btn-success btn-large">Subscribe</button>
-						</div>
-					</div>
-				</form>-->
-			</div>
-		</div>
-		<div class="row"></div>
-		<div class="row">
-			<span class="span3"></span>
-			<!-- Copyright goes here-->
-			<span class="span6 text-center">  © 2014 <a href="#">Terms &amp; Conditions.</a> All rights reserved </span>
-			<span class="span3"> </span>
-		</div>
-	</div>
-</div>
+
 </footer>
 
 <script type="text/javascript">
