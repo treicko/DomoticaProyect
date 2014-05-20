@@ -7,10 +7,13 @@
           <tr>
             <th>#</th>
             <th><center>Email</center></th>
+            <th><center>Rol</center></th>
+            <th><center>Estado</center></th>
             <th><center>Ver</center></th>
             <th><center>Eliminar</center></th>
-            <th><center>Habilitar</center></th>
             <th><center>Deshabilitar</center></th>
+            <th><center>Habilitar</center></th>
+            <th><center>Cambiar Rol</center></th>
           </tr>
         </thead>
 
@@ -20,10 +23,20 @@
             <tr>
               <td><%= cont %></td>
               <td><%= user.email %></td>
-              <td><a href="/manager/show_user/<%= user.id %>"><center><i class="icon-eye-open icon-2x"></center></a></td>
-              <td><a href="/manager/delete_user/<%= user.id %>"><center><i class="icon-trash icon-2x"></center></a></td>
-              <td><a href="/manager/enable_user/<%= user.id %>"><center><i class="icon-unlock icon-2x"></center></a></td>
-              <td><a href="/manager/disable_user/<%= user.id %>"><center><i class="icon-lock icon-2x"></center></a></td>
+              <!-- <td><center><%#= if user.has_role? :admin then "Administrador" else "Usuario" end %></center></td> -->
+              <td><center><%= if user.rol=="Administrador" then "Administrador" else "Usuario" end %></center></td>
+              <td><center><%= if user.user_enable then "Habilitado" else "Des-Habilitado" end %></center></td>
+              <td><a href="/manager/show_user/<%= user.id %>"><center>ver</a></td>
+              <td><a href="/manager/delete_user/<%= user.id %>"><center>eliminar</center></a></td>
+              <% if user.user_enable %>
+              <% then %>
+                <td><a href="/manager/disable_user/<%= user.id %>" disabled><center>deshabilitar</center></a></td>
+                <td></td>
+              <% else %>
+                <td></td>
+                <td><a href="/manager/enable_user/<%= user.id %>"><center>habilitar</center></a></td>
+              <% end %>
+              <td><a href="/manager/change_role/<%= user.id %>"><center>Cambiar Rol</center></a></td>
               <% cont=cont+1 %>
             </tr>
           <% end %>

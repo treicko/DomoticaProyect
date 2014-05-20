@@ -17,26 +17,6 @@
 		  <strong>Rol:</strong>
 		  <%= if @user.has_role? :admin then "Administrador" else "Usuario" end %>
 		</p>
-		<p>
-		  <strong>Estado:</strong>
-		  <%= if @user.user_enable then "Habilitado" else "Des-Habilitado" end %>
-		</p>
-		<p>
-		  <strong>Cambio Contraceña en:</strong>
-		  <%= @user.reset_password_sent_at %>
-		</p>
-		<p>
-		  <strong>Ultimo ingreso en:</strong>
-		  <%= @user.last_sign_in_at %>
-		</p>
-		<p>
-		  <strong>Creado en:</strong>
-		  <%= @user.created_at %>
-		</p>
-		<p>
-		  <strong>Modificado en:</strong>
-		  <%= @user.updated_at %>
-		</p>
  
 		<a href="/manager/users_list"><i class="icon-reorder"></i> Volver a la Lista De Usuarios</a>
     </div>

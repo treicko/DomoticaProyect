@@ -10,6 +10,7 @@ DomoticaProyect::Application.routes.draw do
   get '/manager/delete_user/:id' => 'manager#delete_user'
   get '/manager/enable_user/:id' => 'manager#enable_user'
   get '/manager/disable_user/:id' => 'manager#disable_user'
+  get '/manager/change_role/:id' => 'manager#change_role'
 
   resources :manager
 
