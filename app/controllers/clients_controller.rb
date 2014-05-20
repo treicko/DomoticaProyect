@@ -1,6 +1,10 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource :only => [:new, :edit, :destroy] 
+  before_action :authenticate_user!
+    
+
+
 
   # GET /clients
   # GET /clients.json
