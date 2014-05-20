@@ -2,6 +2,7 @@
  <table>
   <thead>
     <tr>
+      <th></th>
       <th>My location</th>
       <th></th>
       <th>My places</th>
@@ -19,8 +20,10 @@
     <% @locations.each do |location| %>
       <% @thermostats = Thermostat.where(:location_id => location.id) %>
       <tr>
+       
+        
         <td>
-          <%= image_tag "casa.png", size: "120x90" %><center><%= location.address %><center>
+          <%= image_tag "casa.png", size: "96x72" %><center><%= location.address %><center>
         </td>
         <td>))))))))</td>
         <td>
@@ -29,7 +32,9 @@
               <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
           <% end %>
         </td>
-        <td></td>
+         <td>
+          <%= image_tag "green_leaf.png", size: "60x45" %>
+        </td>
         <td>
           <%= link_to 'Add Thermostat', location %> |
 
