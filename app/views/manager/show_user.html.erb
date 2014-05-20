@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="bs-docs-section">
+    <h1 id="tables" class="page-header">Ver Usuario</h1>
+    <div class="bs-example">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong>Correo:</strong>
+		  <%= @user.email %>
+		</p>
+
+		<p>
+		  <strong>Rol:</strong>
+		  <%= if @user.has_role? :admin then "Administrador" else "Usuario" end %>
+		</p>
+		<a href="/manager/users_list"><i class="icon-reorder"></i> Volver a la Lista De Usuarios</a>
+    </div>
+  </div>
+</div>
+

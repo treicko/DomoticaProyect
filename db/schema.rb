@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20140515151751) do
 
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.string   "lastName"
+    t.integer  "id_user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "days", force: true do |t|
     t.string   "name"
     t.integer  "temperatures_id"
