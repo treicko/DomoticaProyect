@@ -1,6 +1,5 @@
 class ManagerController < ApplicationController
     #load_and_authorize_resource :only => [:users_list, :enable_user, :deshabilitar_usuario] 
-	before_action :authenticate_user!
 
 	def users_list
 		@users = User.all
