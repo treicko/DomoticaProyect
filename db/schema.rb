@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20140520162851) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "user_enable",            default: true, 
-    t.string   "rol",                    default: "Usuario", 
+    t.boolean  "user_enable"
+    t.string   "rol"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
