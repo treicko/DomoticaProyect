@@ -32,8 +32,13 @@
   </div>
   <div class="navbar-collapse collapse navbar-inverse-collapse">
     <ul class="nav navbar-nav">
+      <% if user_signed_in? %> 
+      <% if current_user.rol=="Administrador" %>
       <li><a href="/manager/users_list"><i class="icon-group"></i>Usuarios</a></li>
+      <% end %>
 	  <li><a href="/clients"><i class="icon-group"></i>CLientes</a></li>
+      
+      <% end %>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -46,6 +51,9 @@
     <ul class="nav navbar-nav navbar-right">
       	<% if user_signed_in? %>  
 			<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
+			<li><a>Id: <%= current_user.id %></a> </li>
+			<li><a>enable: <%= current_user.user_enable %></a> </li>
+			<li><a>rol: <%= current_user.rol %></a> </li>
 			<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
   		<% else %>  
 		    <li><%= link_to "Registrarse", new_user_registration_path %></li>
