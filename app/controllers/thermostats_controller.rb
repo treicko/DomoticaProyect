@@ -26,13 +26,14 @@ class ThermostatsController < ApplicationController
   def create
     @thermostat = @location.thermostats.new(thermostat_params)
    respond_to do |format|
-      if @thermostat_history.save
-        format.html { redirect_to @thermostat, notice: 'Thermostat history was successfully created.' }
+      if @thermostat.save
+        format.html { redirect_to locations_path, notice: 'Thermostat was successfully created.' }
         format.json { render action: 'show', status: :created, location: @thermostat }
       else
         format.html { render action: 'new' }
         format.json { render json: @thermostat.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   # PATCH/PUT /thermostats/1
