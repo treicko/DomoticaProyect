@@ -3,6 +3,8 @@ class ThermostatsController < ApplicationController
    before_action :load_location 
   # GET /thermostats
   # GET /thermostats.json
+
+
   def index
     @thermostats = Thermostat.all
   end
