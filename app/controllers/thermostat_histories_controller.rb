@@ -1,6 +1,7 @@
 class ThermostatHistoriesController < ApplicationController
   before_action :set_thermostat_history, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token
+  
 
   # GET /thermostat_histories
   # GET /thermostat_histories.json

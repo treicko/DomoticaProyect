@@ -3,6 +3,8 @@ class ThermostatsController < ApplicationController
    before_action :load_location 
   # GET /thermostats
   # GET /thermostats.json
+
+
   def index
     @thermostats = Thermostat.all
   end
@@ -25,8 +27,15 @@ class ThermostatsController < ApplicationController
   # POST /thermostats.json
   def create
     @thermostat = @location.thermostats.new(thermostat_params)
-    @thermostat.save
-    redirect_to locations_path
+   respond_to do |format|
+      if @thermostat.save
+        format.html { redirect_to locations_path, notice: 'Thermostat was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @thermostat }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @thermostat.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /thermostats/1
