@@ -3,20 +3,20 @@
 		<h2>Bienvenido, Inicia Sesi&oacute;n...!!</h2>
 		<div class="col-lg-8">
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-			  <div><%= f.label :email %><br />
+			  <div><%= f.label :Correo_Electrónico %><br />
 			  <%= f.email_field :email, autofocus: true, class: "form-control" %></div>
 
-			  <div><%= f.label :password %><br />
+			  <div><%= f.label :Contraseña %><br />
 			    <%= f.password_field :password, autocomplete: "off", class: "form-control" %></div>
 
 			  <% if devise_mapping.rememberable? -%>
-			    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+			    <div><%= f.check_box :remember_me %> <%= f.label :Recordarme? %></div>
 			  <% end -%>
 
 			  <div><%= f.submit "Ingresar", class: "btn btn-warning" %></div>
 			<% end %>
 		<div>
 
-		<%= render "devise/shared/links" %>
+		<%#= render "devise/shared/links" %>
 	<div>
 <div>

@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20140520162851) do
     t.datetime "updated_at"
   end
 
+  create_table "days", force: true do |t|
+    t.string   "name"
+    t.integer  "temperatures_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", force: true do |t|
     t.string   "address"
     t.integer  "user_id"
@@ -59,6 +66,14 @@ ActiveRecord::Schema.define(version: 20140520162851) do
     t.integer  "serial_number"
     t.integer  "location_id"
     t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "triples", force: true do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "days_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

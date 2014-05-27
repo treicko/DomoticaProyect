@@ -8,7 +8,6 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-
     <!--<link href="http://bootstrapguru.com/preview/ported/css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href="http://bootstrapguru.com/preview/ported/css/style.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/font-awesome.min.css">-->
@@ -17,56 +16,41 @@
 	<![endif]-->	
 	<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/animate.css">
 	<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/jquery.easy-pie-chart.css">
-
-
 </head>
 <body>
-
-
 <!-- Navigation bar starts here-->
-
 <div class="navbar navbar-inverse">
-
   <div class="navbar-header">
     <a class="navbar-brand" href="#">Domotica</a>
   </div>
   <div class="navbar-collapse collapse navbar-inverse-collapse">
     <ul class="nav navbar-nav">
       <% if user_signed_in? %> 
-      <% if current_user.rol=="Administrador" %>
-      <li><a href="/manager/users_list"><i class="icon-group"></i>Usuarios</a></li>
+	      <% if current_user.rol=="Administrador" %>
+	      	<li><a href="/manager/users_list"></i>Usuarios</a></li>
+	      <% else %> 
+	      	<li><a href="/locations">Locations</a></li>
+	      	<li><a href="/thermostat_histories">Thermostat_histories</a></li>
+	      <% end %>
       <% end %>
-	  <li><a href="/clients"><i class="icon-group"></i>CLientes</a></li>
-      
-      <% end %>
-      <li><a href="/locations">Locations</a>
-      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       	<% if user_signed_in? %>  
-			<li><a>Signed in as <%= current_user.email %>. Not you?</a> </li>
-			<li><a>Id: <%= current_user.id %></a> </li>
-			<li><a>enable: <%= current_user.user_enable %></a> </li>
-			<li><a>rol: <%= current_user.rol %></a> </li>
-			<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+			<li><a>Conectado como: <%= current_user.email %></a></li>
+			<li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
   		<% else %>  
-		    <li><%= link_to "Registrarse", new_user_registration_path %></li>
+		    <li><%= link_to "Regístrate Ahora", new_user_registration_path %></li>
 		    <li><%= link_to "Ingresar", new_user_session_path %></li>
   		<% end %>
-    </ul>
-  </div>
-
+  	</ul>
+	</div>
 </div>
-
 <!-- Navigation bar ends here-->
-
 <div class="container">
 	<%= yield %>
 </div>
-
 <!--Footer part starts here-->
 <footer class="bs-docs-footer">
-
 </footer>
 <!--
 <script type="text/javascript">
@@ -82,34 +66,11 @@
 		});
 		
 		$('.chart1').easyPieChart({
-			animate: 2000,
-			scaleColor: false,
-			lineWidth: 24,
-			lineCap: 'square',
-			size: 200,
-			trackColor: '#FFF',
 			barColor: '#31c573'
-		});
-		
 		$('.chart2').easyPieChart({
-			animate: 2000,
-			scaleColor: false,
-			lineWidth: 24,
-			lineCap: 'square',
-			size: 200,
-			trackColor: '#FFF',
 			barColor: '#000000'
-		});
-		
 		$('.chart3').easyPieChart({
-			animate: 2000,
-			scaleColor: false,
-			lineWidth: 24,
-			lineCap: 'square',
-			size: 200,
-			trackColor: '#FFF',
 			barColor: '#f16528'
-		});
 	});
 </script>
  -->
