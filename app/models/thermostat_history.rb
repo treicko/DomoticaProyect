@@ -8,8 +8,10 @@ class ThermostatHistory < ActiveRecord::Base
 	end
 
 	def correct_user
-		if User.current != thermostat.location.user
-			errors.add(:thermostat, "is not yours")
-		end
+		if thermostat != nil
+			if User.current != thermostat.location.user 
+				errors.add(:thermostat, "is not yours")
+			end
+		end		
 	end
 end
