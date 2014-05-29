@@ -62,6 +62,10 @@ class ThermostatsController < ApplicationController
     end
   end
 
+  def show_readings
+      @thermostat=Thermostat.find(params[:id])
+      @thermostat_history= ThermostatHistory.where(thermostat: @thermostat).last
+  end 
   private
     # Use callbacks to share common setup or constraints between actions.
     #def set_thermostat
@@ -80,10 +84,7 @@ class ThermostatsController < ApplicationController
   #   @thermostat = Post.find(params[:id])
   #end
 
-  def set_temperature
-    
-
-  end 
+  
 
 
 

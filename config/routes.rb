@@ -23,6 +23,8 @@ DomoticaProyect::Application.routes.draw do
 
   resources :manager
 
+  get '/thermostats/:id/:location_id' => 'thermostats#show_readings'
+
   resources :thermostat_histories
 
   #post '/thermostat_histories/create' => 'thermostat_histories#create'

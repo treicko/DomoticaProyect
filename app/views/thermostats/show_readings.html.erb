@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<table style="border-spacing: 10px;">
+	<thead>
+		<tr>
+			<h1><%=@thermostat.location.address %>/<%= @thermostat.place%></h1>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><h3>Temperatura</h3></td>
+			<td><h3>Humedad</h3></td>
+			<td><h3>Consumo</h3></td>
+		</tr>
+		<tr>
+			<% if @thermostat_histori!= nil %>
+				<td>   <%=@thermostat_history.temperature%>    </td>
+				<td>   <%=@thermostat_history.humidity%>   </td>
+				<td>   <%=@thermostat_history.consumption%>    </td>
+			<%end%>
+		</tr>
+	</tbody>
+</table>

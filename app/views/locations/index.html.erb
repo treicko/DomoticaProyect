@@ -1,11 +1,11 @@
-<h1>Listing locations</h1>
+<h1>Listando locaciones</h1>
  <table>
   <thead>
     <tr>
       <th></th>
-      <th>My location</th>
+      <th>Mis locaciones</th>
       <th></th>
-      <th>My places</th>
+      <th>Mis lugares</th>
       <!--<th>User</th>-->
       <th></th>
       <th></th>
@@ -26,10 +26,22 @@
           <%= image_tag "casa.png", size: "96x72" %><center><%= location.address %><center>
         </td>
         <td>))))))))</td>
-        <td>
+        
           <% @thermostats.each do |t| %>
+          <td>
               <%= image_tag "thermostat.png", size: "120x90" %>
-              <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
+              <td>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><%= link_to t.place, :action => 'edit', :id => location.id %></td><!--AQUI VAN LAS LECTURAS-->
+                  </tr>
+                  <tr>
+                    <td><a href="/thermostats/<%=t.id%>/<%=location.id%>">Lecturas</a></td>  
+                  </tr>
+                </tbody>
+              </table>
+              </td>
           <% end %>
         </td>
          <td>
