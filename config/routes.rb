@@ -31,6 +31,11 @@ DomoticaProyect::Application.routes.draw do
     resources :thermostats  
   end
 
+  post '/alerts/lala' => 'alerts#lala'
+  get '/alerts/setting_alert' => 'alerts#setting_alert'
+  resources :alerts
+
+
   get '/temperatures/edit/:id' => 'temperatures#edit'
 
   # The priority is based upon order of creation: first created -> highest priority.
