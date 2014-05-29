@@ -23,6 +23,12 @@ DomoticaProyect::Application.routes.draw do
 
   resources :manager
 
+  get '/thermostats/config_temp/:id/:location_id' => 'thermostats#configure_temperatures'
+  post '/thermostats/set_config_temp/:id/:location_id' => 'thermostats#set_temperatures'
+
+
+  get '/thermostats/:id/:location_id' => 'thermostats#show_readings'
+
   resources :thermostat_histories
 
   #post '/thermostat_histories/create' => 'thermostat_histories#create'
@@ -39,7 +45,6 @@ DomoticaProyect::Application.routes.draw do
   get '/alerts/send_temperture/:id' => 'alerts#send_temperture'
 
   resources :alerts
-
 
   get '/temperatures/edit/:id' => 'temperatures#edit'
 

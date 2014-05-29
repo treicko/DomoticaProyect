@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :locations, :dependent => :destroy
-  has_many :termometros, :through => :locations, :source => :thermostats 
+  has_many :thermostats, :through => :locations, :source => :thermostats
+  #has_many :thermostat_histories, :through =>  :thermostats
 
   def self.with_role(role)
      my_role = Role.find_by_name(role)

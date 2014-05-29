@@ -1,0 +1,6 @@
+<h1>Configurar Temperatura basica</h1>
+
+<form name="thermostat" action="/thermostats/set_config_temp/<%=@thermostat.id%>/<%=@thermostat.location.id%>" method="post">
+	Temperatura: <input type="text" name="temperature" value ="<%=@thermostat.temperature%>">
+	<input type="submit" value="Ingresar">
+</form>

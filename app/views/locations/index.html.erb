@@ -1,11 +1,11 @@
-<h1>Listing locations</h1>
+<h1>Listando locaciones</h1>
  <table>
   <thead>
     <tr>
       <th></th>
-      <th>My location</th>
+      <th>Mis locaciones</th>
       <th></th>
-      <th>My places</th>
+      <th>Mis lugares</th>
       <!--<th>User</th>-->
       <th></th>
       <th></th>
@@ -21,21 +21,39 @@
     <% @locations.each do |location| %>
       <% @thermostats = Thermostat.where(:location_id => location.id) %>
       <tr>
-       
-        
         <td>
-          <%= image_tag "casa.png", size: "96x72" %><center><%= location.address %><center>
+          <%= image_tag "casa.png", size: "102x86" %><center><%= location.address %><center>
         </td>
         <td>))))))))</td>
-        <td>
+        
           <% @thermostats.each do |t| %>
+          <td>
               <%= image_tag "thermostat.png", size: "120x90" %>
               <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
               |<a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a>
               |<a href="/alerts/alert_list/<%= t.id%>"> Ver Alertas</a>
               |<a href="/alerts/send_temperture/<%= t.id%>"> Enviar Temperatura</a>
-          <% end %>
-        </td>
+              <% end %>
+
+              <table>
+                <tbody>
+                  <tr>
+                    <td><%= link_to t.place, :action => 'edit', :id => location.id %></td><!--AQUI VAN LAS LECTURAS-->
+                  </tr>
+                  <tr>
+                    <td><a href="/thermostats/config_temp/<%=t.id%>/<%=location.id%>">Temperatura Basica</a></td>  
+                  </tr>
+                  <tr>
+                    <td><a href="/thermostats/<%=t.id%>/<%=location.id%>">Lecturas</a></td>  
+                  </tr>
+                  <tr>
+                    <td><a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a></td>  
+                  </tr>
+                </tbody>
+              </table>
+
+          </td>
+       
         <td>
           <%= image_tag "green_leaf.png", size: "60x45" %>
         </td>

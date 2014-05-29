@@ -3,7 +3,7 @@ class ThermostatsController < ApplicationController
    before_action :load_location 
   # GET /thermostats
   # GET /thermostats.json
-
+  skip_before_filter :verify_authenticity_token
 
   def index
     @thermostats = Thermostat.all
@@ -22,6 +22,16 @@ class ThermostatsController < ApplicationController
   # GET /thermostats/1/edit
   def edit
   end
+  def set_temperatures
+    @thermostat=Thermostat.find(params[:id])
+    @thermostat.temperature = params[:temperature]
+    if @thermostat.save
+      redirect_to('/')
+    else
+      redirect_to('/thermostats/config_temp/:id/:location_id')
+    end
+  end
+
 
   # POST /thermostats
   # POST /thermostats.json
@@ -62,6 +72,15 @@ class ThermostatsController < ApplicationController
     end
   end
 
+  def show_readings
+      @thermostat=Thermostat.find(params[:id])
+      @thermostat_history= ThermostatHistory.where(thermostat: @thermostat).last
+  end 
+
+  def configure_temperatures
+    @thermostat = Thermostat.find(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     #def set_thermostat
@@ -80,10 +99,7 @@ class ThermostatsController < ApplicationController
   #   @thermostat = Post.find(params[:id])
   #end
 
-  def set_temperature
-    
-
-  end 
+  
 
 
 
