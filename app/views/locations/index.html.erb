@@ -31,7 +31,7 @@
           <% @thermostats.each do |t| %>
               <%= image_tag "thermostat.png", size: "120x90" %>
               <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
-              |<a href="/alerts/setting_alert"> Configurar Alerta</a>
+              |<a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a>
           <% end %>
         </td>
         <td>

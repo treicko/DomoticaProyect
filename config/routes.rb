@@ -32,7 +32,9 @@ DomoticaProyect::Application.routes.draw do
   end
 
   post '/alerts/lala' => 'alerts#lala'
-  get '/alerts/setting_alert' => 'alerts#setting_alert'
+  post '/alerts/save_setting_alert' => 'alerts#save_setting_alert'
+  get '/alerts/alert_setting_list' => 'alerts#alert_setting_list'
+  get '/alerts/setting_alert/:id' => 'alerts#setting_alert'
   resources :alerts
 
 

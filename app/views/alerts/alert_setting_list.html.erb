@@ -1,0 +1,26 @@
+<h1>Listing Alerts</h1>
+ <table class="table">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Temperatura</th>
+      <th>Intervalo</th>
+      <th>Id_Thermostato</th>
+      <th>Desde</th>
+      <th>Hasta</th>
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @alerts.each do |alert| %>
+      <tr>
+        <td><%= alert.config_date %></td>
+        <td><%= alert.temperature %></td>
+        <td><%= alert.interval %></td>
+        <td><%= alert.thermostat_id %></td>
+        <td><%= alert.config_time_initial %></td>
+        <td><%= alert.config_time_final %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
