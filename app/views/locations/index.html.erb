@@ -41,13 +41,12 @@
                   <tr>
                     <td><a href="/thermostats/<%=t.id%>/<%=location.id%>">Lecturas</a></td>  
                   </tr>
+                  <tr>
+                    <td><a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a></td>  
+                  </tr>
                 </tbody>
               </table>
               </td>
-
-              <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
-              |<a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a>
-
           <% end %>
         </td>
         <td>
