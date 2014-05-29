@@ -30,11 +30,14 @@ DomoticaProyect::Application.routes.draw do
   resources :locations do
     resources :thermostats  
   end
-
-  post '/alerts/lala' => 'alerts#lala'
+ 
+  post '/alerts/check_temperature' => 'alerts#check_temperature'
   post '/alerts/save_setting_alert' => 'alerts#save_setting_alert'
   get '/alerts/alert_setting_list' => 'alerts#alert_setting_list'
+  get '/alerts/alert_list/:id' => 'alerts#alert_list'
   get '/alerts/setting_alert/:id' => 'alerts#setting_alert'
+  get '/alerts/send_temperture/:id' => 'alerts#send_temperture'
+
   resources :alerts
 
 
