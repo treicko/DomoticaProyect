@@ -6,7 +6,7 @@ class ThermostatHistoriesController < ApplicationController
   # GET /thermostat_histories
   # GET /thermostat_histories.json
   def index
-    @thermostat_histories = ThermostatHistory.all
+    @thermostat_histories = current_user.thermostat_histories.all
   end
 
   # GET /thermostat_histories/1

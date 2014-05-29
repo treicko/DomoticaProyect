@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>References</th>
+      <th>Thermostat</th>
       <th>Temperature</th>
       <th>Humidity</th>
       <th>Consumption</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @thermostat_histories.each do |thermostat_history| %>
       <tr>
-        <td><%= thermostat_history.thermostat %></td>
+        <td><%= thermostat_history.thermostat.serial_number %></td>
         <td><%= thermostat_history.temperature %></td>
         <td><%= thermostat_history.humidity %></td>
         <td><%= thermostat_history.consumption %></td>
