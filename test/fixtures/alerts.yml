@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  config_date: 2014-05-29
+  config_time: 2014-05-29 08:05:10
+  temperature: 
+  interval: 2014-05-29 08:05:10
+  thermostat_id: 1
+
+two:
+  config_date: 2014-05-29
+  config_time: 2014-05-29 08:05:10
+  temperature: 
+  interval: 2014-05-29 08:05:10
+  thermostat_id: 1
