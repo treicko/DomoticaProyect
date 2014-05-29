@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528124909) do
+ActiveRecord::Schema.define(version: 20140529132418) do
+
+  create_table "alerts", force: true do |t|
+    t.date     "config_date"
+    t.integer  "temperature"
+    t.time     "interval"
+    t.integer  "thermostat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.time     "config_time_initial"
+    t.time     "config_time_final"
+  end
 
   create_table "clients", force: true do |t|
     t.string   "name"

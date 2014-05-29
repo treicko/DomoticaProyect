@@ -12,6 +12,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
 
     </tr>
   </thead>
@@ -30,6 +31,7 @@
           <% @thermostats.each do |t| %>
           <td>
               <%= image_tag "thermostat.png", size: "120x90" %>
+
               <td>
               <table>
                 <tbody>
@@ -42,9 +44,13 @@
                 </tbody>
               </table>
               </td>
+
+              <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
+              |<a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a>
+
           <% end %>
         </td>
-         <td>
+        <td>
           <%= image_tag "green_leaf.png", size: "60x45" %>
         </td>
         <td>
