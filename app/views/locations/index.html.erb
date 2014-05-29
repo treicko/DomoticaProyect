@@ -24,7 +24,7 @@
        
         
         <td>
-          <%= image_tag "casa.png", size: "96x72" %><center><%= location.address %><center>
+          <%= image_tag "casa.png", size: "102x86" %><center><%= location.address %><center>
         </td>
         <td>))))))))</td>
         
@@ -37,6 +37,9 @@
                 <tbody>
                   <tr>
                     <td><%= link_to t.place, :action => 'edit', :id => location.id %></td><!--AQUI VAN LAS LECTURAS-->
+                  </tr>
+                  <tr>
+                    <td><a href="/thermostats/config_temp/<%=t.id%>/<%=location.id%>">Temperatura Basica</a></td>  
                   </tr>
                   <tr>
                     <td><a href="/thermostats/<%=t.id%>/<%=location.id%>">Lecturas</a></td>  
