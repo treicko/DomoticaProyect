@@ -29,12 +29,8 @@
           <% @thermostats.each do |t| %>
           <td>
               <%= image_tag "thermostat.png", size: "120x90" %>
-              <%= link_to t.place, :action => 'edit', :id => location.id %><!--AQUI VAN LAS LECTURAS-->
-              |<a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a>
-              |<a href="/alerts/alert_list/<%= t.id%>"> Ver Alertas</a>
-              |<a href="/alerts/send_temperture/<%= t.id%>"> Enviar Temperatura</a>
-              <% end %>
 
+              <td>
               <table>
                 <tbody>
                   <tr>
@@ -49,10 +45,21 @@
                   <tr>
                     <td><a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a></td>  
                   </tr>
+                  <tr>
+                    <td><a href="/alerts/alert_list/<%= t.id%>"> Ver Alertas</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="/alerts/send_temperture/<%= t.id%>"> Enviar Temperatura</a></td>
+                  </tr>
                 </tbody>
               </table>
+              </td>
+          <% end %>
+
+             
 
           </td>
+          
        
         <td>
           <%= image_tag "green_leaf.png", size: "60x45" %>
