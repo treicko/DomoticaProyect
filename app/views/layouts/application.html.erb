@@ -21,7 +21,7 @@
 <!-- Navigation bar starts here-->
 <div class="navbar navbar-inverse">
   <div class="navbar-header">
-    <a class="navbar-brand" href="#">Domotica</a>
+    <a class="navbar-brand" href="/">Domotica</a>
   </div>
   <div class="navbar-collapse collapse navbar-inverse-collapse">
     <ul class="nav navbar-nav">
@@ -29,8 +29,8 @@
 	      <% if current_user.rol=="Administrador" %>
 	      	<li><a href="/manager/users_list"></i>Usuarios</a></li>
 	      <% else %>
-	      	<li><a href="/locations">Locations</a></li>
-	      	<li><a href="/thermostat_histories">Thermostat_histories</a></li>
+	      	<li><a href="/locations">Locaciones</a></li>
+	      	<li><a href="/thermostat_histories">Lecturas de Termostatos</a></li>
 	      <% end %>
       <% end %>
     </ul>

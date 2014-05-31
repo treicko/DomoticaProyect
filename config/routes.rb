@@ -12,6 +12,8 @@ DomoticaProyect::Application.routes.draw do
       #:via => Devise.mappings[:user].sign_out_via
     #end
 
+    #post '/api/register' => 'thermostat_histories#create'
+
   root 'principals#index'
 
   get '/manager/users_list' => 'manager#users_list'
@@ -29,7 +31,14 @@ DomoticaProyect::Application.routes.draw do
 
   get '/thermostats/:id/:location_id' => 'thermostats#show_readings'
 
-  resources :thermostat_histories
+ get   '/thermostat_histories' =>  'thermostat_histories#index'
+ post   '/api/register'  => 'thermostat_histories#create'
+ get   '/api/register/new' =>  'thermostat_histories#new'
+ get   '/api/register/:id/edit' => 'thermostat_histories#edit'
+ get   '/api/register/:id' => 'thermostat_histories#show'
+ patch  '/api/register/:id' =>  'thermostat_histories#update'
+ put  '/api/register/:id'  =>  'thermostat_histories#update'
+ delete   '/api/register/:id' =>   'thermostat_histories#destroy'
 
   #post '/thermostat_histories/create' => 'thermostat_histories#create'
 

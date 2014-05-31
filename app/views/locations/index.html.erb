@@ -28,7 +28,9 @@
         
           <% @thermostats.each do |t| %>
           <td>
+          <a href="/thermostats/<%=t.id%>/<%=location.id%>">
               <%= image_tag "thermostat.png", size: "120x90" %>
+          </a>
               <td>
               <table>
                 <tbody>
@@ -39,16 +41,13 @@
                     <td><a href="/thermostats/config_temp/<%=t.id%>/<%=location.id%>">Temperatura Basica</a></td>  
                   </tr>
                   <tr>
-                    <td><a href="/thermostats/<%=t.id%>/<%=location.id%>">Lecturas</a></td>  
-                  </tr>
-                  <tr>
                     <td><a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a></td>  
                   </tr>
                   <tr>
                     <td><a href="/alerts/alert_list/<%= t.id%>"> Ver Alertas</a></td>
                   </tr>
                   <tr>
-                    <td><a href="/alerts/send_temperture/<%= t.id%>"> Enviar Temperatura</a></td>
+                    <td><a href="/alerts/send_temperture/<%= t.id%>"> Enviar Temperatura </a></td>
                   </tr>
                 </tbody>
               </table>
