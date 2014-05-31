@@ -34,8 +34,8 @@ protect_from_forgery except: :index
 		@temperature = params[:temperatura]
 		@alerts = Alert.where(:thermostat_id => @thermostat_id)
 		@alerts.each do |alert|
-			#if alert.temperature==@temperature
-				#redirect_to '/thermostat_histories'
+			# if alert.temperature==@temperature
+			# redirect_to '/thermostat_histories'
 			#	@alertHistory = AlertHistory.new
 			#	@alertHistory.thermostat_id = @thermostat_id
 			#	@alertHistory.alert_id = alert.id

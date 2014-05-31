@@ -14,7 +14,8 @@
 ActiveRecord::Schema.define(version: 20140529160644) do
 
   create_table "alert_histories", force: true do |t|
-    t.boolean  "state",         default: false, null: false
+    t.boolean  "state",         def
+    ult: false, null: false
     t.integer  "thermostat_id"
     t.integer  "alert_id"
     t.string   "message"
@@ -25,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140529160644) do
 
   create_table "alerts", force: true do |t|
     t.date     "config_date"
-    t.integer  "temperature"
+    t.integer  "temperatrure"
     t.time     "interval"
     t.integer  "thermostat_id"
     t.datetime "created_at"
@@ -38,6 +39,13 @@ ActiveRecord::Schema.define(version: 20140529160644) do
     t.string   "name"
     t.string   "lastName"
     t.integer  "id_user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "days", force: true do |t|
+    t.string   "name"
+    t.integer  "temperatures_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,6 +92,14 @@ ActiveRecord::Schema.define(version: 20140529160644) do
     t.datetime "updated_at"
     t.integer  "temperature"
     t.boolean  "configuration"
+  end
+
+  create_table "triples", force: true do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "days_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
