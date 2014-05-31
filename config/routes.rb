@@ -1,5 +1,7 @@
 DomoticaProyect::Application.routes.draw do
 
+  resources :schedules
+
   resources :clients
 
   #devise_for :users
