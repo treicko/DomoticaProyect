@@ -11,19 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520162851) do
+ActiveRecord::Schema.define(version: 20140528074505) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
     t.string   "lastName"
     t.integer  "id_user"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "days", force: true do |t|
-    t.string   "name"
-    t.integer  "temperatures_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +39,15 @@ ActiveRecord::Schema.define(version: 20140520162851) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
+  create_table "schedules", force: true do |t|
+    t.string   "day"
+    t.datetime "time"
+    t.integer  "temperature"
+    t.integer  "thermostat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "temperatures", force: true do |t|
     t.integer  "basic_temp"
     t.integer  "thermostats_id"
@@ -66,14 +68,6 @@ ActiveRecord::Schema.define(version: 20140520162851) do
     t.integer  "serial_number"
     t.integer  "location_id"
     t.string   "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "triples", force: true do |t|
-    t.time     "start_time"
-    t.time     "end_time"
-    t.integer  "days_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
