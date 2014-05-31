@@ -39,7 +39,7 @@ class ThermostatsController < ApplicationController
     @thermostat = @location.thermostats.new(thermostat_params)
    respond_to do |format|
       if @thermostat.save
-        format.html { redirect_to locations_path, notice: 'Thermostat was successfully created.' }
+        format.html { redirect_to locations_path, notice: 'Thermostat was successfully created!' }
         format.json { render action: 'show', status: :created, location: @thermostat }
       else
         format.html { render action: 'new' }

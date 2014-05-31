@@ -27,14 +27,16 @@ class ThermostatHistoriesController < ApplicationController
   # POST /thermostat_histories.json
   def create
     @thermostat_history = ThermostatHistory.new(thermostat:Thermostat.where(serial_number: params[:thermostat_history][:thermostat]).first, temperature: params[:thermostat_history][:temperature], humidity: params[:thermostat_history][:humidity],consumption: params[:thermostat_history][:consumption])
-
+    @status= Status.new
     respond_to do |format|
       if @thermostat_history.save
         format.html { redirect_to @thermostat_history, notice: 'Thermostat history was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @thermostat_history }
+        format.json { render action: 'show', status: :created}#, location: @thermostat_history }
       else
+        @status.status='Error'
+        @status.message=@thermostat_history.errors
         format.html { render action: 'new' }
-        format.json { render json: @thermostat_history.errors, status: :unprocessable_entity }
+        format.json { render action: 'show', status: :unprocessable_entity }
       end
     end
   end
@@ -73,7 +75,18 @@ class ThermostatHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thermostat_history_params
-
       params.require(:thermostat_history).permit(:temperature, :temperature, :humidity, :consumption)
     end
+end
+
+
+class Status
+  def initialize
+    #@status_label = 'status'
+    @status= 'OK'
+    @message='Thermostat History saved correctly!'
+  end
+  
+  attr_accessor :status, :message
+  
 end
