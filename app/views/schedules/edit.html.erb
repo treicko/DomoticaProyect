@@ -1,0 +1,146 @@
+<div class="header">
+    <p>Agenda de control de temperatura</p>
+    <p>7:00 AM</p>
+    <p>Martes, 20 de Mayo de 2014</p>
+</div>
+<div class="temp_control">
+    <p>Control de temperatura</p>
+    <div aria-disabled="false" id="slider" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div style="width: 42.8571%;" class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-max"></div><a style="left: 57.1429%;" class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a></div>
+</div>
+<form action="http://localhost:3000/schedules/edit" method="get">
+
+    <ul class="top">
+        <li>
+            <span class="day">Lunes</span>
+            <ul class="temps">
+                <li><input id="m12" name="m12" class="circle" value="<%=@thermostat.get_valor('LUNES','')%>" type="text"></li>
+                <li><input id="m13" name="m13" class="circle" value="75" type="text"></li>
+                <li><input id="m14" name="m14" class="circle active" value="75" type="text"></li>
+                <li><input id="m15" name="m15" class="circle" value="75" type="text"></li>
+                <li><input id="m16" name="m16" class="circle" value="75" type="text"></li>
+            </ul>
+        </li>
+    </ul>
+     <ul class="top">
+        <li>
+            <span class="day">Martes</span>
+            <ul class="temps">
+                <li><input id="tu12" name="tu12" class="circle" value="75" type="text"></li>
+                <li><input id="tu13" name="tu13" class="circle" value="75" type="text"></li>
+                <li><input id="tu14" name="tu14" class="circle" value="75" type="text"></li>
+                <li><input id="tu15" name="tu15" class="circle" value="75" type="text"></li>
+                <li><input id="tu16" name="tu16" class="circle" value="75" type="text"></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="top">
+        <li>
+            <span class="day">Miercoles</span>
+            <ul class="temps">
+                <li><input id="w12" name="w12" class="circle" value="75" type="text"></li>
+                <li><input id="w13" name="w13" class="circle" value="75" type="text"></li>
+                <li><input id="w14" name="w14" class="circle" value="75" type="text"></li>
+                <li><input id="w15" name="w15" class="circle" value="75" type="text"></li>
+                <li><input id="w16" name="w16" class="circle" value="75" type="text"></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="top">
+        <li>
+            <span class="day">Jueves</span>
+            <ul class="temps">
+                <li><input id="th12" name="th12" class="circle" value="75" type="text"></li>
+                <li><input id="th13" name="th13" class="circle" value="75" type="text"></li>
+                <li><input id="th14" name="th14" class="circle" value="75" type="text"></li>
+                <li><input id="th15" name="th15" class="circle" value="75" type="text"></li>
+                <li><input id="th16" name="th16" class="circle" value="75" type="text"></li>
+
+            </ul>
+        </li>
+    </ul>
+    <ul class="top">
+        <li>
+            <span class="day">Viernes</span>
+            <ul class="temps">
+                <li><input id="f12" name="f12" class="circle" value="75" type="text"></li>
+                <li><input id="f13" name="f13" class="circle" value="75" type="text"></li>
+                <li><input id="f14" name="f14" class="circle" value="75" type="text"></li>
+                <li><input id="f15" name="f15" class="circle" value="75" type="text"></li>
+                <li><input id="f16" name="f16" class="circle" value="75" type="text"></li>
+
+            </ul>
+        </li>
+    </ul>
+    <ul class="top">
+        <li>
+            <span class="day">Sabado</span>
+            <ul class="temps">
+                <li><input id="sa12" name="sa12" class="circle" value="75" type="text"></li>
+                <li><input id="sa13" name="sa13" class="circle" value="75" type="text"></li>
+                <li><input id="sa14" name="sa14" class="circle" value="75" type="text"></li>
+                <li><input id="sa15" name="sa15" class="circle" value="75" type="text"></li>
+                <li><input id="sa16" name="sa16" class="circle" value="75" type="text"></li>
+
+            </ul>
+        </li>
+    </ul>
+    <ul class="top">
+        <li>
+            <span class="day">Domingo</span>
+            <ul class="temps">
+                <li><input id="su12" name="su12" class="circle" value="75" type="text"></li>
+                <li><input id="su13" name="su13" class="circle" value="75" type="text"></li>
+                <li><input id="su14" name="su14" class="circle" value="75" type="text"></li>
+                <li><input id="su15" name="su15" class="circle" value="75" type="text"></li>
+                <li><input id="su16" name="su16" class="circle" value="75" type="text"></li>
+            </ul>
+        </li>
+    </ul>
+    <%= hidden_field_tag(:parent_id, @lista1)%>
+    <input type="submit">
+</form>
+
+<script>
+$(function() {
+  $( "#slider" ).slider({
+    range: "max",
+    min: 50,
+    max: 99,
+    value: 75,
+    slide: function( event, ui ) {
+      $( ".active" ).val( ui.value );
+      var x = $( ".active" ).val();
+      if (x <= 60) {
+        $(".active").css("background-color", "#4ea6cf");
+      }
+      else if (x > 60 && x <= 65) {
+        $(".active").css("background-color", "#5ac5cf");
+      }
+      else if (x > 65 && x <= 70) {
+        $(".active").css("background-color", "#7dd7bf");
+      }
+      else if (x > 70 && x <= 75) {
+        $(".active").css("background-color", "#b1cfa1");
+      }
+      else if (x > 75 && x <= 80) {
+        $(".active").css("background-color", "#e5bf7c");
+      }
+      else if (x > 80 && x <= 85) {
+        $(".active").css("background-color", "#d79168");
+      }
+      else if (x > 85 && x <= 90) {
+        $(".active").css("background-color", "#cd7159");
+      }
+      else if (x > 90) {
+        $(".active").css("background-color", "#c4463a");
+      };
+    }
+  });
+  $( ".active" ).val( $( "#slider" ).slider( "value"));
+});
+
+$( ".circle" ).click(function() {
+  $(".active").removeClass("active");
+  $(this).addClass("active");
+});
+</script>
