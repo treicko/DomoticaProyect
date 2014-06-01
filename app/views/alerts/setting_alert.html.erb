@@ -1,0 +1,46 @@
+<div class="container"> 
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 id="forms"><center>Configurar Termostato</center></h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-lg-offset-3">
+	<%= form_tag("/alerts/save_setting_alert", method: "post") do %>
+	  <fieldset>
+	    <legend>Legend</legend>
+	    <input type="HIDDEN" name="thermostat_id" value="<%= @thermostat_id %>">
+	    <div class="form-group">
+		  <label class="control-label">Fecha: </label>
+		  <input type="date" class="form-control" name="fecha">
+		</div>
+		<div class="form-group">
+		  <label class="control-label">Temperatura: </label>
+		  <input type="number" class="form-control" name="temperatura">
+		</div>
+		<div class="form-group">
+		  <label class="control-label">Intérvalo: </label>
+		  <input type="time" class="form-control" name="intervalo">
+		</div>
+		<div class="form-group">
+		  <label class="control-label">Hora Inicial: </label>
+		  <input type="time" class="form-control" name="hora_inicial">
+		</div>
+		<div class="form-group">
+		  <label class="control-label">Hora Final: </label>
+		  <input type="time" class="form-control" name="hora_final">
+		</div>
+		<div class="form-group">
+	      <div class="col-lg-10 col-lg-offset-2">
+	        <button class="btn btn-default">Cancel</button>
+	        <button type="submit" class="btn btn-primary">Submit</button>
+	      </div>
+	    </div>
+	  </fieldset>
+	<% end %>
+  </div>
+</div>
+
+

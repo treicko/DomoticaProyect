@@ -14,6 +14,8 @@ DomoticaProyect::Application.routes.draw do
       #:via => Devise.mappings[:user].sign_out_via
     #end
 
+    #post '/api/register' => 'thermostat_histories#create'
+
   root 'principals#index'
 
   get '/manager/users_list' => 'manager#users_list'
@@ -25,13 +27,35 @@ DomoticaProyect::Application.routes.draw do
 
   resources :manager
 
-  resources :thermostat_histories
+  get '/thermostats/config_temp/:id/:location_id' => 'thermostats#configure_temperatures'
+  post '/thermostats/set_config_temp/:id/:location_id' => 'thermostats#set_temperatures'
+
+
+  get '/thermostats/:id/:location_id' => 'thermostats#show_readings'
+
+ get   '/thermostat_histories' =>  'thermostat_histories#index'
+ post   '/api/register'  => 'thermostat_histories#create'
+ get   '/api/register/new' =>  'thermostat_histories#new'
+ get   '/api/register/:id/edit' => 'thermostat_histories#edit'
+ get   '/api/register/:id' => 'thermostat_histories#show'
+ patch  '/api/register/:id' =>  'thermostat_histories#update'
+ put  '/api/register/:id'  =>  'thermostat_histories#update'
+ delete   '/api/register/:id' =>   'thermostat_histories#destroy'
 
   #post '/thermostat_histories/create' => 'thermostat_histories#create'
 
   resources :locations do
     resources :thermostats  
   end
+ 
+  post '/alerts/check_temperature' => 'alerts#check_temperature'
+  post '/alerts/save_setting_alert' => 'alerts#save_setting_alert'
+  get '/alerts/alert_setting_list' => 'alerts#alert_setting_list'
+  get '/alerts/alert_list/:id' => 'alerts#alert_list'
+  get '/alerts/setting_alert/:id' => 'alerts#setting_alert'
+  get '/alerts/send_temperture/:id' => 'alerts#send_temperture'
+
+  resources :alerts
 
   get '/temperatures/edit/:id' => 'temperatures#edit'
 
