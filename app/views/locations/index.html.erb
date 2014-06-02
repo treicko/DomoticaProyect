@@ -22,7 +22,7 @@
       <% @thermostats = Thermostat.where(:location_id => location.id) %>
       <tr>
         <td>
-          <%= image_tag "casa.png", size: "102x86" %><center><%= location.address %><center>
+          <a href="/local_weather/<%=location.id%>"> <%= image_tag "casa.png", size: "102x86" %><center><%= location.address %><center></a>
         </td>
         <td></td>
         

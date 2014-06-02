@@ -24,7 +24,7 @@ DomoticaProyect::Application.routes.draw do
   get '/manager/enable_user/:id' => 'manager#enable_user'
   get '/manager/disable_user/:id' => 'manager#disable_user'
   get '/manager/change_role/:id' => 'manager#change_role'
-
+  get '/local_weather/:location_id' =>'local_weather#show'
   resources :manager
 
   get '/thermostats/config_temp/:id/:location_id' => 'thermostats#configure_temperatures'
