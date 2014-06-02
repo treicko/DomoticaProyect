@@ -1,4 +1,4 @@
-<table class ="table">
+<table class ="table table-striped table-hover ">
 	<thead>
 		<tr>
 			<h1>Cochabamba-Bolivia</h1>
@@ -9,7 +9,7 @@
 			
 			<%@weather_hash.each do |weather_array|%>
 			<td>
-				<p> <%=   weather_array["date"]["weekday"] %>&#44; <%= weather_array["date"]["day"] %> de <%= weather_array["date"]["monthname"] %> de <%= weather_array["date"]["year"] %></p>
+				<p> <%= weather_array["date"]["weekday"] %>&#44; <%= weather_array["date"]["day"] %> de <%= weather_array["date"]["monthname"] %> de <%= weather_array["date"]["year"] %></p>
 			</td>
 			<% end %>
 			

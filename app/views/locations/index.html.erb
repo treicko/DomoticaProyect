@@ -28,7 +28,7 @@
         
           <% @thermostats.each do |t| %>
           <td>
-          <a href="/thermostats/<%=t.id%>/<%=location.id%>">
+          <a href="/locations/<%=location.id%>thermostats/<%=t.id%>">
               <%= image_tag "thermostat.png", size: "120x90" %>
 
           </a>
@@ -40,7 +40,7 @@
                     <td><%= link_to t.place, :action => 'edit', :id => location.id %></td><!--AQUI VAN LAS LECTURAS-->
                   </tr>
                   <tr>
-                    <td><a href="/thermostats/config_temp/<%=t.id%>/<%=location.id%>">Temperatura Basica</a></td>  
+                    <td><a href="/locations/<%=location.id%>/thermostats/config_temp/<%=t.id%>">Temperatura Basica</a></td>  
                   </tr>
                   <tr>
                     <td><a href="/alerts/setting_alert/<%= t.id%>"> Configurar Alerta</a></td>  

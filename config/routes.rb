@@ -27,11 +27,11 @@ DomoticaProyect::Application.routes.draw do
   get '/local_weather/:location_id' =>'local_weather#show'
   resources :manager
 
-  get '/thermostats/config_temp/:id/:location_id' => 'thermostats#configure_temperatures'
-  post '/thermostats/set_config_temp/:id/:location_id' => 'thermostats#set_temperatures'
+  get '/locations/:location_id/thermostats/config_temp/:id' => 'thermostats#configure_temperatures'
+  post '/locations/:location_id/thermostats/set_config_temp/:id' => 'thermostats#set_temperatures'
 
 
-  get '/thermostats/:id/:location_id' => 'thermostats#show_readings'
+  get '/locations/:location_id/thermostats/:id' => 'thermostats#show_readings'
 
  get   '/thermostat_histories' =>  'thermostat_histories#index'
  post   '/api/register'  => 'thermostat_histories#create'
