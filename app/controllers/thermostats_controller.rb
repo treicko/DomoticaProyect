@@ -79,14 +79,16 @@ class ThermostatsController < ApplicationController
     @thermostat = Thermostat.find(params[:id])
   end
 
+ 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     #def set_thermostat
     #  @thermostat = Thermostat.find(params[:id])
     #end
   def load_location
-    @location = Location.find(params[:location_id])
-    #@thermostat = Thermostat.find(params[:id])
+      @location = Location.find(params[:location_id])
+      #@thermostat = Thermostat.find(params[:id])
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   def thermostat_params
@@ -97,8 +99,6 @@ class ThermostatsController < ApplicationController
   #   @thermostat = Post.find(params[:id])
   #end
 
-  
-
-
 
 end
+

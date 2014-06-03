@@ -38,10 +38,10 @@
 			  	<% if user_signed_in? %>  
 					<li><a>Conectado como: <%= current_user.email %></a></li>
 					<li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
-					<% else %>  
+				<% else %>  
 				    <li><%= link_to "Regístrate Ahora", new_user_registration_path %></li>
 				    <li><%= link_to "Ingresar", new_user_session_path %></li>
-					<% end %>
+				<% end %>
 			</ul>
 		</div>
 	</div>
