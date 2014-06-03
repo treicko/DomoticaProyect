@@ -392,11 +392,11 @@ class SchedulesController < ApplicationController
   # GET /schedules/1/edit
   def edit
     #redirect_to  action: 'show', id: 60 
-
+    @agenda = Schedule.where(:thermostat_id => params[:id])
     @thermostat = Thermostat.find(params[:id])
     @lista = Schedule.where(:thermostat_id => params[:id]).all
     
-    @lista1 =@lista.first.thermostat_id
+    @id_thermostat =@lista.first.thermostat_id
        
   end
 

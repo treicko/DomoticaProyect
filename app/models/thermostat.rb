@@ -7,7 +7,9 @@ class Thermostat < ActiveRecord::Base
 	has_many :schedules
 
 
-	def get_valor(dia,franja)
-		50
+	def get_valor(dia,franja, t_id)
+		@agenda = Schedule.where(:day => dia, :time => franja, :thermostat_id => t_id).first
+		@final = @agenda.temperature
+
 	end
 end
