@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140529160644) do
 
   create_table "alerts", force: true do |t|
     t.date     "config_date"
-    t.integer  "temperatrure"
+    t.integer  "temperature"
     t.time     "interval"
     t.integer  "thermostat_id"
     t.datetime "created_at"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 20140529160644) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "schedules", force: true do |t|
+    t.string   "day"
+    t.datetime "time"
+    t.integer  "temperature"
+    t.integer  "thermostat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "temperatures", force: true do |t|
     t.integer  "basic_temp"
