@@ -65,13 +65,26 @@ class ThermostatHistoriesController < ApplicationController
     end
   end
 
-  
+  def show_temperature_request
+      @temperature_request = TemperatureRequest.new
+      thermostat = Thermostat.where(serial_number: params[:serial_number]).first
+      if thermostat.configuration
+        @temperature_request.status='OK'
+        @temperature_request.temperature=thermostat.temperature
+      else
+          @temperature_request.status='OK'
+          #codigo de consulta aqui!!!!!!!!!!!!!
+      end
+      respond_to do |format|
+        format.json {render json: @temperature_request}
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_thermostat_history
-      @thermostat_history = ThermostatHistory.find(params[:id])
-    end
+   # def set_thermostat_history
+    #  @thermostat_history = ThermostatHistory.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thermostat_history_params
@@ -88,5 +101,15 @@ class Status
   end
   
   attr_accessor :status, :message
+  
+end
+
+class TemperatureRequest
+  def initialize
+    @status= 'Error!'
+    @temperature= 'Error'
+  end
+  
+  attr_accessor :status, :temperature
   
 end

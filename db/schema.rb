@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529160644) do
+ActiveRecord::Schema.define(version: 20140603004414) do
 
   create_table "alert_histories", force: true do |t|
     t.boolean  "state",         default: false, null: false
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140529160644) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country"
+    t.string   "region"
   end
 
   create_table "roles", force: true do |t|
@@ -138,3 +140,4 @@ ActiveRecord::Schema.define(version: 20140529160644) do
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
 end
+>>>>>>> 84a9737ec60c3879c4400c26b28970fc80fcae45

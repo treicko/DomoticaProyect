@@ -1,9 +1,13 @@
 class ThermostatHistory < ActiveRecord::Base
 	belongs_to :thermostat
-	validate :existence_of_thermostat#, :correct_user
+	validates_presence_of :thermostat,:temperature, :humidity, :consumption
+	validates :temperature, numericality: { greater_than_or_equal_to: -20,less_than_or_equal_to: 60 }
+	validates :humidity, numericality: { greater_than_or_equal_to: 0,less_than_or_equal_to: 100 }
+	validates :consumption, numericality: { greater_than_or_equal_to: 0,less_than_or_equal_to: 1000 }
+	validate :existence_of_thermostat, :correct_user
 	def existence_of_thermostat
 		if thermostat==nil
-			errors.add(:thermostat, "can't be nil")
+			errors.add(:thermostat, "doesn't exist")
 		end
 	end
 

@@ -1,0 +1,40 @@
+<table class ="table table-striped table-hover ">
+	<thead>
+		<tr>
+			<h1><%= @location.region.upcase %>,<%=@location.country.upcase%></h1>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			
+			<%@weather_hash.each do |weather_array|%>
+			<td>
+				<p> <%= weather_array["date"]["weekday"] %>&#44; <%= weather_array["date"]["day"] %> de <%= weather_array["date"]["monthname"] %> de <%= weather_array["date"]["year"] %></p>
+			</td>
+			<% end %>
+			
+		</tr>
+		<tr>
+			<%@weather_hash.each do |weather_array|%>
+				<td>
+					<img src="<%=weather_array["icon_url"]%>" height ="60" width "60"/>
+					<figcaption><%=weather_array["conditions"]%></figcaption>
+				</td>
+			<% end %>
+		</tr>
+		<tr>
+			<%@weather_hash.each do |weather_array|%>
+			<td>
+				<p>Alta&#58; <%=weather_array["high"]["celsius"] %>  &deg;C</p>
+			</td>
+			<% end %>
+		</tr>
+		<tr>
+			<%@weather_hash.each do |weather_array|%>
+				<td>
+					<p>Baja&#58; <%=weather_array["low"]["celsius"] %>  &deg;C</p>
+				</td>
+			<% end %>
+		</tr>
+	</tbody>
+</table>
