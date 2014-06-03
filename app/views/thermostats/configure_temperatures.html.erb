@@ -1,6 +1,22 @@
 <h1>Configurar Temperatura basica</h1>
 
-<form name="thermostat" action="/thermostats/set_config_temp/<%=@thermostat.id%>/<%=@thermostat.location.id%>" method="post">
-	Temperatura: <input type="text" name="temperature" value ="<%=@thermostat.temperature%>">
-	<input type="submit" value="Ingresar">
-</form>
+<%= form_for @thermostat, :url => {:action => "set_temperatures"} do |f| %>
+
+	<div class="field">
+    <%= f.label "Temperatura Basica" %><br>
+    <%= f.number_field :temperature %>
+  	</div>
+
+	<div class="field">
+    	<%= f.label "Configuracion Basica" %><br> 
+    	<%= f.radio_button(:configuration, true) %>
+    	<%= f.label :configuration, "Si" %>
+    	<%= f.radio_button(:configuration, false) %>
+    	<%= f.label :configuration, "No" %>
+  	</div>
+
+  	<div class="actions">
+    	<%= f.submit "Cambiar Temperatura" %>
+  	</div>
+
+<% end %>
