@@ -11,3 +11,4 @@ class Thermostat < ActiveRecord::Base
 			self.configuration = true
 		end
 end
+

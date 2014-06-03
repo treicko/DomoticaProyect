@@ -35,7 +35,7 @@ DomoticaProyect::Application.routes.draw do
 
  get   '/thermostat_histories' =>  'thermostat_histories#index'
  post   '/api/register'  => 'thermostat_histories#create'
- get  '/api/get_temp/:serial_number' => 'thermostat_histories#show_temperature_request'
+ get  '/api/get_temp/:serial_number' => 'temperatures#show_temperature_request'
  get   '/api/register/new' =>  'thermostat_histories#new'
  get   '/api/register/:id/edit' => 'thermostat_histories#edit'
  get   '/api/register/:id' => 'thermostat_histories#show'

@@ -19,3 +19,14 @@ class ThermostatHistory < ActiveRecord::Base
 		end		
 	end
 end
+
+class Status
+  def initialize
+    #@status_label = 'status'
+    @status= 'OK'
+    @message='Thermostat History saved correctly!'
+  end
+  
+  attr_accessor :status, :message
+end
+
