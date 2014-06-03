@@ -1,3 +1,21 @@
+<br>
+Id Termostato: <%= @thermostat_id %>
+<br>
+Temperatura: <%= @temperature %>
+<br>
+Es Mayor: <%= @es_mayor %>
+<br>
+Resta Temperatura: <%= @time_elapsed.inspect %>
+<br>
+time new : <%= @time_new.inspect %>
+<br>
+histories_create : <%= @histories_create.inspect %>
+<br>
+intervalo d alerta: <%= @alert_interval %>
+<br>
+id de alerta: <%= @alert_id %>
+
+
 <h1>Listing Alerts</h1>
  <table class="table">
   <thead>
@@ -8,8 +26,6 @@
       <th>Id_Thermostato</th>
       <th>Desde</th>
       <th>Hasta</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -22,8 +38,6 @@
         <td><%= alert.thermostat_id %></td>
         <td><%= alert.config_time_initial %></td>
         <td><%= alert.config_time_final %></td>
-        <td><a href="/alerts/alert_edit/<%=alert.id%>">Editar</a></td>
-        <td><a href="/alerts/destroy/<%=alert.id%>">Eliminar</a></td>
       </tr>
     <% end %>
   </tbody>

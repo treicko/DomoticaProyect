@@ -60,6 +60,9 @@ DomoticaProyect::Application.routes.draw do
   get '/alerts/alert_list/:id' => 'alerts#alert_list'
   get '/alerts/setting_alert/:id' => 'alerts#setting_alert'
   get '/alerts/send_temperture/:id' => 'alerts#send_temperture'
+  get '/alerts/alert_edit/:id' => 'alerts#alert_edit'
+  get '/alerts/destroy/:id' => 'alerts#destroy'
+  get '/alerts/alert_history_list/:id' => 'alerts#alert_history_list'
 
   resources :alerts
 

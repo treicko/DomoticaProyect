@@ -10,7 +10,6 @@
   <div class="col-lg-6 col-lg-offset-3">
 	<%= form_tag("/alerts/check_temperature", method: "post") do %>
 	  <fieldset>
-	    <legend>Legend</legend>
 	    <input type="HIDDEN" name="thermostat_id" value="<%= @thermostat_id %>">
 		<div class="form-group">
 		  <label class="control-label">Temperatura: </label>
