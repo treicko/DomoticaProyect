@@ -16,62 +16,64 @@
 	<link rel="stylesheet" href="http://bootstrapguru.com/preview/ported/css/jquery.easy-pie-chart.css">
 	
 </head>
-<body>
+<body >
 <!-- Navigation bar starts here-->
-<div class="navbar navbar-inverse">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/">Domotica</a>
-  </div>
-  <div class="navbar-collapse collapse navbar-inverse-collapse">
-    <ul class="nav navbar-nav">
-      <% if user_signed_in? %> 
-	      <% if current_user.rol=="Administrador" %>
-	      	<li><a href="/manager/users_list"></i>Usuarios</a></li>
-	      <% else %>
-	      	<li><a href="/locations">Locaciones</a></li>
-	      	<li><a href="/thermostat_histories">Lecturas de Termostatos</a></li>
-	      <% end %>
-      <% end %>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      	<% if user_signed_in? %>  
-			<li><a>Conectado como: <%= current_user.email %></a></li>
-			<li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
-  		<% else %>  
-		    <li><%= link_to "Regístrate Ahora", new_user_registration_path %></li>
-		    <li><%= link_to "Ingresar", new_user_session_path %></li>
-  		<% end %>
-  	</ul>
+	<div class="navbar navbar-inverse">
+	  	<div class="navbar-header">
+	    	<a class="navbar-brand" href="/">Domotica</a>
+	  	</div>
+	 	<div class="navbar-collapse collapse navbar-inverse-collapse">
+			<ul class="nav navbar-nav">
+			  <% if user_signed_in? %> 
+			      <% if current_user.rol=="Administrador" %>
+			      	<li><a href="/manager/users_list"></i>Usuarios</a></li>
+			      <% else %>
+			      	<li><a href="/locations">Locaciones</a></li>
+			      	<li><a href="/thermostat_histories">Lecturas de Termostatos</a></li>
+			      <% end %>
+			  <% end %>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			  	<% if user_signed_in? %>  
+					<li><a>Conectado como: <%= current_user.email %></a></li>
+					<li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+				<% else %>  
+				    <li><%= link_to "Regístrate Ahora", new_user_registration_path %></li>
+				    <li><%= link_to "Ingresar", new_user_session_path %></li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
-</div>
-<!-- Navigation bar ends here-->
-<div class="container">
-	<%= yield %>
-</div>
-<!--Footer part starts here-->
-<footer class="bs-docs-footer">
-</footer>
-<!--
-<script type="text/javascript">
-	$(function() {
-		$('.chart0').easyPieChart({
-			animate: 2000,
-			scaleColor: false,
-			lineWidth: 24,
-			lineCap: 'square',
-			size: 200,
-			trackColor: '#FFF',
-			barColor: '#357193'
+	<!-- Navigation bar ends here-->
+
+	<div class="container">
+		<%= yield %>
+	</div>
+
+	<!--Footer part starts here-->
+	<footer class="bs-docs-footer">
+	</footer>
+	<!--
+	<script type="text/javascript">
+		$(function() {
+			$('.chart0').easyPieChart({
+				animate: 2000,
+				scaleColor: false,
+				lineWidth: 24,
+				lineCap: 'square',
+				size: 200,
+				trackColor: '#FFF',
+				barColor: '#357193'
+			});
+			
+			$('.chart1').easyPieChart({
+				barColor: '#31c573'
+			$('.chart2').easyPieChart({
+				barColor: '#000000'
+			$('.chart3').easyPieChart({
+				barColor: '#f16528'
 		});
-		
-		$('.chart1').easyPieChart({
-			barColor: '#31c573'
-		$('.chart2').easyPieChart({
-			barColor: '#000000'
-		$('.chart3').easyPieChart({
-			barColor: '#f16528'
-	});
-</script>
- -->
+	</script>
+	 -->
 </body>
 </html>

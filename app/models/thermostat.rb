@@ -5,10 +5,17 @@ class Thermostat < ActiveRecord::Base
 	validates_presence_of :serial_number,:temperature, :configuration
 	has_many :temperatures
 	has_many :schedules
+
+	def get_valor(dia,franja, t_id)
+		@agenda = Schedule.where(:day => dia, :time => franja, :thermostat_id => t_id).first
+		@final = @agenda.temperature
+
+	end
 	after_initialize :set_config_to_true
 	private
 		def set_config_to_true
 			self.configuration = true
 		end
+
 end
 
