@@ -2,7 +2,7 @@
   
   <% if @thermostat.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@thermostat.errors.count, "error") %> prohibited this thermostat from being saved:</h2>
+      <h2><%= pluralize(@thermostat.errors.count, "error") %> prohibieron que este termostato se guarde:</h2>
 
       <ul>
       <% @thermostat.errors.full_messages.each do |msg| %>
@@ -22,7 +22,20 @@
     <%= f.text_field :place %>
   </div>
 
+  <div class="field">
+    <%= f.label "Temperatura Basica" %><br>
+    <%= f.number_field :temperature %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Configuracion Basica" %><br> 
+    <%= f.radio_button(:configuration, true) %>
+    <%= f.label :configuration, "Si" %>
+    <%= f.radio_button(:configuration, false) %>
+    <%= f.label :configuration, "No" %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Aceptar" %>
   </div>
 <% end %>

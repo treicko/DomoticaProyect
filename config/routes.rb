@@ -27,14 +27,15 @@ DomoticaProyect::Application.routes.draw do
   get '/local_weather/:location_id' =>'local_weather#show'
   resources :manager
 
-  get '/locations/:location_id/thermostats/config_temp/:id' => 'thermostats#configure_temperatures'
-  post '/locations/:location_id/thermostats/set_config_temp/:id' => 'thermostats#set_temperatures'
+  # get '/locations/:location_id/thermostats/config_temp/:id' => 'thermostats#configure_temperatures'
+  #post '/locations/:location_id/thermostats/set_config_temp/:id' => 'thermostats#set_temperatures'
 
 
-  get '/locations/:location_id/thermostats/:id' => 'thermostats#show_readings'
+  #get '/locations/:location_id/thermostats/:id' => 'thermostats#show_readings'
 
  get   '/thermostat_histories' =>  'thermostat_histories#index'
  post   '/api/register'  => 'thermostat_histories#create'
+ get  '/api/get_temp/:serial_number' => 'thermostat_histories#show_temperature_request'
  get   '/api/register/new' =>  'thermostat_histories#new'
  get   '/api/register/:id/edit' => 'thermostat_histories#edit'
  get   '/api/register/:id' => 'thermostat_histories#show'
@@ -47,7 +48,12 @@ DomoticaProyect::Application.routes.draw do
   resources :locations do
     resources :thermostats  
   end
- 
+  get '/locations/:location_id/thermostats/config_temp/:id' => 'thermostats#configure_temperatures'
+  post '/locations/:location_id/thermostats/set_config_temp/:id' => 'thermostats#set_temperatures'
+
+
+  #get '/locations/:location_id/thermostats/readings/:id' => 'thermostats#show_readings'
+
   post '/alerts/check_temperature' => 'alerts#check_temperature'
   post '/alerts/save_setting_alert' => 'alerts#save_setting_alert'
   get '/alerts/alert_setting_list' => 'alerts#alert_setting_list'

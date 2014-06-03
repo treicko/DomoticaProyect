@@ -7,6 +7,10 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 
+gem 'countries'
+
+gem 'country_select'
+
 gem 'wunderground'
 
 # Use sqlite3 as the database for Active Record

@@ -12,7 +12,9 @@ class ThermostatsController < ApplicationController
   # GET /thermostats/1
   # GET /thermostats/1.json
   def show
-  end
+      @thermostat=Thermostat.find(params[:id])
+      @thermostat_history= ThermostatHistory.where(thermostat: @thermostat).last
+  end 
 
   # GET /thermostats/new
   def new
@@ -40,7 +42,7 @@ class ThermostatsController < ApplicationController
    respond_to do |format|
       if @thermostat.save
         format.html { redirect_to :controller => 'schedules', :action => 'new', :id => @thermostat.id}
-        format.html { redirect_to locations_path, notice: 'Thermostat was successfully created.' }
+        #format.html { redirect_to locations_path, notice: 'Thermostat was successfully created.' }
         format.json { render action: 'show', status: :created, location: @thermostat }
       else
         format.html { render action: 'new' }
@@ -73,11 +75,6 @@ class ThermostatsController < ApplicationController
     end
   end
 
-  def show_readings
-      @thermostat=Thermostat.find(params[:id])
-      @thermostat_history= ThermostatHistory.where(thermostat: @thermostat).last
-  end 
-
   def configure_temperatures
     @thermostat = Thermostat.find(params[:id])
   end
@@ -93,7 +90,7 @@ class ThermostatsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   def thermostat_params
-    params.require(:thermostat).permit(:serial_number, :location_id, :place)
+    params.require(:thermostat).permit(:serial_number, :location_id, :temperature, :configuration)
   end
 
   #def show_configureTemp
