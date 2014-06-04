@@ -21,9 +21,9 @@
                 <% @alert.each do |my_alert| %>
                   <tr>
                     <td><%= my_alert.temperature %></td>
-                    <td><%= my_alert.interval %></td>
-                    <td><%= my_alert.config_time_initial %></td>
-                    <td><%= my_alert.config_time_final %></td>
+                    <td><%= my_alert.interval.strftime("%H:%M:%S Hrs.") %></td>
+                    <td><%= my_alert.config_time_initial.strftime("%H:%M:%S Hrs.") %></td>
+                    <td><%= my_alert.config_time_final.strftime("%H:%M:%S Hrs.") %></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -33,7 +33,7 @@
               <button type="button" class="close" data-dismiss="alert">×</button>
               <h4><strong>Alerta..!!</strong></h4>
               <p><%= alert_user.message %>.</p>
-              <p><strong>Fecha: </strong><%= alert_user.created_at.strftime("%d %B %Y - %H:%M:%S") %>.</p>
+              <p><strong>Fecha: </strong><%= alert_user.created_at.strftime("%d %B %Y - %H:%M:%S Hrs") %>.</p>
             </div>
 
           </div>

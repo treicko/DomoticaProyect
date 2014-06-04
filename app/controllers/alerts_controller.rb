@@ -97,9 +97,11 @@ protect_from_forgery except: :index
 
 	def alert_history_list
 		@user_id = params[:id]
-		@alerts_user = AlertHistory.where(:user_id => @user_id)
-		#@alerts_user.each do |alert|
-		#	alert.state = 
+		@alerts_user = AlertHistory.where(:user_id => @user_id, :state => 0)
+		@alerts_user.each do |alert|
+			alert.state = 1
+			alert.save
+		end
 	end
 
 
