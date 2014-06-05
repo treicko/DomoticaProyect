@@ -1,3 +1,90 @@
+<style>
+* { box-sizing: border-box; -moz-box-sizing:border-box; position:relative;}
+html, body {margin:0; padding:0; background: #13181f; color: #e7d6ca; font-family: "Helvetica", Arial, sans-serif}
+
+body {min-width:800px;}
+input {color:#e7d6ca; font-size:1em; text-align:center;}
+
+ul {padding:0; margin:0; list-style: none;}
+
+.mili {display:inline-block; width:100%;}
+
+ul li ul li {width:auto;}
+ul li ul {display:inline-block;}
+.header {color: #e7d6ca; font-family: "Helvetica", Arial, sans-serif}
+.header p {display:inline-block; width:33%; text-align: center;}
+.temp_control {box-shadow: 0 3px 10px #000; border-top: rgb(64,68,75); border-bottom: rgb(64,68,75); z-index: 10; padding:2em;
+background: rgb(77,80,87);
+background: -moz-linear-gradient(top,  rgba(77,80,87,1) 0%, rgba(64,68,75,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(77,80,87,1)), color-stop(100%,rgba(64,68,75,1)));
+background: -webkit-linear-gradient(top,  rgba(77,80,87,1) 0%,rgba(64,68,75,1) 100%);
+background: -o-linear-gradient(top,  rgba(77,80,87,1) 0%,rgba(64,68,75,1) 100%);
+background: -ms-linear-gradient(top,  rgba(77,80,87,1) 0%,rgba(64,68,75,1) 100%);
+background: linear-gradient(to bottom,  rgba(77,80,87,1) 0%,rgba(64,68,75,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', endColorstr='#40444b',GradientType=0 );
+}
+.temp_control p {margin:0; display:inline-block; width:25%;}
+
+/*Slider Styles*/
+.slider {display:inline-block; width:74%;}
+.ui-widget-content {
+    background: rgb(78,165,207);
+    background: -moz-linear-gradient(left,  rgba(78,165,207,1) 0%, rgba(99,219,207,1) 33%, rgba(232,199,128,1) 67%, rgba(197,86,77,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(78,165,207,1)), color-stop(33%,rgba(99,219,207,1)), color-stop(67%,rgba(232,199,128,1)), color-stop(100%,rgba(197,86,77,1)));
+    background: -webkit-linear-gradient(left,  rgba(78,165,207,1) 0%,rgba(99,219,207,1) 33%,rgba(232,199,128,1) 67%,rgba(197,86,77,1) 100%);
+    background: -o-linear-gradient(left,  rgba(78,165,207,1) 0%,rgba(99,219,207,1) 33%,rgba(232,199,128,1) 67%,rgba(197,86,77,1) 100%);
+    background: -ms-linear-gradient(left,  rgba(78,165,207,1) 0%,rgba(99,219,207,1) 33%,rgba(232,199,128,1) 67%,rgba(197,86,77,1) 100%);
+    background: linear-gradient(to right,  rgba(78,165,207,1) 0%,rgba(99,219,207,1) 33%,rgba(232,199,128,1) 67%,rgba(197,86,77,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ea5cf', endColorstr='#c5564d',GradientType=1 );
+}
+.ui-widget-header {background:transparent;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {background:#55585f; border-radius:100em;}
+.ui-slider .ui-slider-handle {height:2em; width:2em; top:-.75em; -webkit-box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.3); box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.3); border:1px solid rgba(64,69,77,1); cursor: pointer;
+    background: rgb(86,89,97);
+    background: -moz-linear-gradient(top,  rgba(86,89,97,1) 0%, rgba(64,69,77,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,89,97,1)), color-stop(100%,rgba(64,69,77,1)));
+    background: -webkit-linear-gradient(top,  rgba(86,89,97,1) 0%,rgba(64,69,77,1) 100%);
+    background: -o-linear-gradient(top,  rgba(86,89,97,1) 0%,rgba(64,69,77,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(86,89,97,1) 0%,rgba(64,69,77,1) 100%);
+    background: linear-gradient(to bottom,  rgba(86,89,97,1) 0%,rgba(64,69,77,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#565961', endColorstr='#40454d',GradientType=0 );
+
+}
+.ui-slider .ui-slider-handle:after { content: ''; display: block; position: absolute; top: 7px; right: 7px; bottom: 7px; left: 7px; z-index: -1; -webkit-border-radius: 100em; -moz-border-radius: 100em; -ms-border-radius: 100em; -o-border-radius: 100em; border-radius: 100em; border: 1px solid rgba(64,69,77,.5);
+    background: rgb(64,69,77);
+    background: -moz-linear-gradient(top,  rgba(64,69,77,1) 0%, rgba(86,89,97,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(64,69,77,1)), color-stop(100%,rgba(86,89,97,1)));
+    background: -webkit-linear-gradient(top,  rgba(64,69,77,1) 0%,rgba(86,89,97,1) 100%);
+    background: -o-linear-gradient(top,  rgba(64,69,77,1) 0%,rgba(86,89,97,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(64,69,77,1) 0%,rgba(86,89,97,1) 100%);
+    background: linear-gradient(to bottom,  rgba(64,69,77,1) 0%,rgba(86,89,97,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40454d', endColorstr='#565961',GradientType=0 );
+}
+:focus {outline:none;};
+/*End Slider Styles*/
+
+.main {z-index: 9;}
+.top {border-bottom:2px solid #000;}
+.day, .trash {padding:1em 0;}
+.temps li {padding: .4em 0;}
+.day {display:inline-block; background:#252a31; padding-left:2em; padding-right:2em; width:25%; box-shadow: 3px 2px 10px #000;}
+.temps {text-align: center; width:74.5%;}
+.temps li {width:16%;}
+.circle {border-radius:100em; display:block; width:2.5em; padding:.6em 0; margin:0 auto; text-shadow: 0 1px #464a52; border:1px solid rgba(66,71,79,1); cursor: pointer;
+    background: rgb(77,80,87);
+
+    background: -moz-linear-gradient(top,  rgba(77,80,87,1) 0%, rgba(66,71,79,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(77,80,87,1)), color-stop(100%,rgba(66,71,79,1)));
+    background: -webkit-linear-gradient(top,  rgba(77,80,87,1) 0%,rgba(66,71,79,1) 100%);
+    background: -o-linear-gradient(top,  rgba(77,80,87,1) 0%,rgba(66,71,79,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(77,80,87,1) 0%,rgba(66,71,79,1) 100%);
+    background: linear-gradient(to bottom,  rgba(77,80,87,1) 0%,rgba(66,71,79,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', endColorstr='#42474f',GradientType=0 );
+}
+.trash {display:inline-block; background:#31363e; text-align:center; width:25%; box-shadow: 3px 1px 10px #000; cursor: pointer;}
+.active {background:#b1cfa1;} 
+
+</style>
 <div class="header">
     <p>Agenda de control de temperatura</p>
     <p>7:00 AM</p>
@@ -10,89 +97,101 @@
 <form action="http://localhost:3000/schedules/edit" method="get">
 
     <ul class="top">
-        <li>
+        <li class="mili">
             <span class="day">Lunes</span>
             <ul class="temps">
-                <li><input id="m12" name="m12" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="m13" name="m13" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="m14" name="m14" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="m15" name="m15" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="m16" name="m16" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m12" name="m12" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m13" name="m13" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m14" name="m14" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m15" name="m15" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m16" name="m16" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
             </ul>
         </li>
     </ul>
      <ul class="top">
-        <li>
+        <li class="mili">
             <span class="day">Martes</span>
             <ul class="temps">
-                <li><input id="tu12" name="tu12" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="tu13" name="tu13" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="tu14" name="tu14" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="tu15" name="tu15" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="tu16" name="tu16" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu12" name="tu12" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu13" name="tu13" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu14" name="tu14" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu15" name="tu15" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu16" name="tu16" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
             </ul>
         </li>
     </ul>
     <ul class="top">
-        <li>
+        <li class="mili">
             <span class="day">Miercoles</span>
             <ul class="temps">
-                <li><input id="w12" name="w12" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="w13" name="w13" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="w14" name="w14" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="w15" name="w15" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="w16" name="w16" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w12" name="w12" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w13" name="w13" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w14" name="w14" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w15" name="w15" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w16" name="w16" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
             </ul>
         </li>
     </ul>
     <ul class="top">
-        <li>
+        <li class="mili">
             <span class="day">Jueves</span>
             <ul class="temps">
-                <li><input id="th12" name="th12" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="th13" name="th13" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="th14" name="th14" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="th15" name="th15" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="th16" name="th16" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th12" name="th12" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th13" name="th13" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th14" name="th14" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th15" name="th15" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th16" name="th16" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
 
             </ul>
         </li>
     </ul>
     <ul class="top">
-        <li>
+        <li class="mili">
             <span class="day">Viernes</span>
             <ul class="temps">
-                <li><input id="f12" name="f12" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="f13" name="f13" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="f14" name="f14" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="f15" name="f15" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="f16" name="f16" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f12" name="f12" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f13" name="f13" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f14" name="f14" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f15" name="f15" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f16" name="f16" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
 
             </ul>
         </li>
     </ul>
     <ul class="top">
-        <li>
+        <li class="mili">
             <span class="day">Sabado</span>
             <ul class="temps">
-                <li><input id="sa12" name="sa12" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="sa13" name="sa13" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="sa14" name="sa14" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="sa15" name="sa15" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="sa16" name="sa16" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa12" name="sa12" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa13" name="sa13" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa14" name="sa14" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa15" name="sa15" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa16" name="sa16" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
 
             </ul>
         </li>
     </ul>
     <ul class="top">
-        <li>
+        <li class="mili">
             <span class="day">Domingo</span>
             <ul class="temps">
-                <li><input id="su12" name="su12" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="su13" name="su13" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="su14" name="su14" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="su15" name="su15" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li><input id="su16" name="su16" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su12" name="su12" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su13" name="su13" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su14" name="su14" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su15" name="su15" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su16" name="su16" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="top">
+        <li class="mili">
+            <span class="trash">Franja horaria</span>
+            <ul class="temps">
+                <li class="mili">12 PM</li>
+                <li class="mili">13 PM</li>
+                <li class="mili">14 PM</li>
+                <li class="mili">15 PM</li>
+                <li class="mili">16 PM</li>
             </ul>
         </li>
     </ul>
@@ -104,34 +203,34 @@
 $(function() {
   $( "#slider" ).slider({
     range: "max",
-    min: 50,
-    max: 99,
-    value: 75,
+    min: 15,
+    max: 55,
+    value: 25,
     slide: function( event, ui ) {
       $( ".active" ).val( ui.value );
       var x = $( ".active" ).val();
-      if (x <= 60) {
+      if (x <= 20) {
         $(".active").css("background-color", "#4ea6cf");
       }
-      else if (x > 60 && x <= 65) {
+      else if (x > 20 && x <= 25) {
         $(".active").css("background-color", "#5ac5cf");
       }
-      else if (x > 65 && x <= 70) {
+      else if (x > 25 && x <= 30) {
         $(".active").css("background-color", "#7dd7bf");
       }
-      else if (x > 70 && x <= 75) {
+      else if (x > 30 && x <= 35) {
         $(".active").css("background-color", "#b1cfa1");
       }
-      else if (x > 75 && x <= 80) {
+      else if (x > 35 && x <= 40) {
         $(".active").css("background-color", "#e5bf7c");
       }
-      else if (x > 80 && x <= 85) {
+      else if (x > 40 && x <= 45) {
         $(".active").css("background-color", "#d79168");
       }
-      else if (x > 85 && x <= 90) {
+      else if (x > 45 && x <= 50) {
         $(".active").css("background-color", "#cd7159");
       }
-      else if (x > 90) {
+      else if (x > 50) {
         $(".active").css("background-color", "#c4463a");
       };
     }

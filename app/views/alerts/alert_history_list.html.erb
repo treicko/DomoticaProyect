@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Historial de Alertas</h1>
+      <% @alerts_user.each do |alert_user| %>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= Location.find(Thermostat.find(alert_user.thermostat_id).location_id).address %> - <%= Thermostat.find(alert_user.thermostat_id).place %></h3>
+          </div>
+          <div class="panel-body">
+            <% @alert = Alert.where(:id => alert_user.alert_id) %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Temperatura</th>
+                  <th>Intervalo</th>
+                  <th>Desde</th>
+                  <th>Hasta</th>
+                </tr>
+              </thead>
+
+              <tbody >
+                <% @alert.each do |my_alert| %>
+                  <tr>
+                    <td><%= my_alert.temperature %></td>
+                    <td><%= my_alert.interval.strftime("%H:%M:%S Hrs.") %></td>
+                    <td><%= my_alert.config_time_initial.strftime("%H:%M:%S Hrs.") %></td>
+                    <td><%= my_alert.config_time_final.strftime("%H:%M:%S Hrs.") %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <div class="alert alert-dismissable alert-danger">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <h4><strong>Alerta..!!</strong></h4>
+              <p><%= alert_user.message %>.</p>
+              <p><strong>Fecha: </strong><%= alert_user.created_at.strftime("%d %B %Y - %H:%M:%S Hrs") %>.</p>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+<div>

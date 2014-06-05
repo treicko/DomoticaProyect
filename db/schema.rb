@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140605021023) do
+=======
+ActiveRecord::Schema.define(version: 20140603151439) do
+>>>>>>> 0a7ff09c8080b116847136348e63625aeaee4aab
 
   create_table "alert_histories", force: true do |t|
     t.boolean  "state",         default: false, null: false
@@ -21,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140605021023) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_email"
+    t.boolean  "active",        default: false, null: false
+    t.integer  "user_id"
   end
 
   create_table "alerts", force: true do |t|
@@ -38,6 +44,13 @@ ActiveRecord::Schema.define(version: 20140605021023) do
     t.string   "name"
     t.string   "lastName"
     t.integer  "id_user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "days", force: true do |t|
+    t.string   "name"
+    t.integer  "temperatures_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,6 +108,14 @@ ActiveRecord::Schema.define(version: 20140605021023) do
     t.datetime "updated_at"
     t.integer  "temperature"
     t.string   "configuration"
+  end
+
+  create_table "triples", force: true do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "days_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
