@@ -61,6 +61,8 @@ class LocationsController < ApplicationController
   # DELETE /locations/1
   # DELETE /locations/1.json
   def destroy
+    @thermostat=Thermostat.where(location_id: @location.id)
+    @thermostat.destroy_all
     @location.destroy
     respond_to do |format|
       format.html { redirect_to locations_url }

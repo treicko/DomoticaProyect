@@ -1,4 +1,9 @@
 DomoticaProyect::Application.routes.draw do
+  get 'issues/cancel' => 'issues#cancel'
+  get 'issues/:id/resolve' =>'issues#resolve'
+  patch 'issues/:id/resolve' =>'issues#solve'
+  resources :issues
+
 
   resources :schedules
 

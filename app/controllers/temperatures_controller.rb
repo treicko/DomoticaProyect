@@ -1,23 +1,23 @@
 class TemperaturesController < ApplicationController
 
   def get_time(present_time)
-    if (time=Time.mktime(present_time.year,present_time.month,present_time.day,12,0,0))>present_time
+    if (time=Time.mktime(present_time.year,present_time.month,present_time.day,16,0,0))>present_time
+        return "2014-05-28 20:00:00".to_datetime
+    elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,16,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,17,0,0))>present_time
         return "2014-05-28 16:00:00".to_datetime
-    elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,12,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,13,0,0))>present_time
-        return "2014-05-28 12:00:00".to_datetime
-     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,13,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,14,0,0))>present_time
-        return "2014-05-28 13:00:00".to_datetime
-     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,14,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,15,0,0))>present_time
-        return "2014-05-28 14:00:00".to_datetime
-     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,15,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,16,0,0))>present_time
-        return "2014-05-28 15:00:00".to_datetime
-     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,16,0,0))<present_time
-        return "2014-05-28 16:00:00".to_datetime
+     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,17,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,18,0,0))>present_time
+        return "2014-05-28 17:00:00".to_datetime
+     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,18,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,19,0,0))>present_time
+        return "2014-05-28 18:00:00".to_datetime
+     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,19,0,0))<present_time and (time=Time.mktime(present_time.year,present_time.month,present_time.day,20,0,0))>present_time
+        return "2014-05-28 19:00:00".to_datetime
+     elsif (time=Time.mktime(present_time.year,present_time.month,present_time.day,20,0,0))<present_time
+        return "2014-05-28 20:00:00".to_datetime
     end
   end
 
   def get_day(present_time)
-    if present_time.hour<12
+    if present_time.hour<16
       day=present_time.wday-1
     end
     case day

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140605021023) do
-=======
-ActiveRecord::Schema.define(version: 20140603151439) do
->>>>>>> 0a7ff09c8080b116847136348e63625aeaee4aab
+ActiveRecord::Schema.define(version: 20140605141746) do
 
   create_table "alert_histories", force: true do |t|
     t.boolean  "state",         default: false, null: false
@@ -47,6 +43,17 @@ ActiveRecord::Schema.define(version: 20140603151439) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "issues", force: true do |t|
+    t.integer  "thermostat_id"
+    t.text     "description"
+    t.string   "status"
+    t.string   "resolution"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "issues", ["thermostat_id"], name: "index_issues_on_thermostat_id"
 
   create_table "locations", force: true do |t|
     t.string   "address"
