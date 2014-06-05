@@ -35,7 +35,7 @@ DomoticaProyect::Application.routes.draw do
 
  get   '/thermostat_histories' =>  'thermostat_histories#index'
  post   '/api/register'  => 'thermostat_histories#create'
- get  '/api/get_temp/:serial_number' => 'thermostat_histories#show_temperature_request'
+ get  '/api/get_temp/:serial_number' => 'temperatures#show_temperature_request'
  get   '/api/register/new' =>  'thermostat_histories#new'
  get   '/api/register/:id/edit' => 'thermostat_histories#edit'
  get   '/api/register/:id' => 'thermostat_histories#show'
@@ -60,6 +60,9 @@ DomoticaProyect::Application.routes.draw do
   get '/alerts/alert_list/:id' => 'alerts#alert_list'
   get '/alerts/setting_alert/:id' => 'alerts#setting_alert'
   get '/alerts/send_temperture/:id' => 'alerts#send_temperture'
+  get '/alerts/alert_edit/:id' => 'alerts#alert_edit'
+  get '/alerts/destroy/:id' => 'alerts#destroy'
+  get '/alerts/alert_history_list/:id' => 'alerts#alert_history_list'
 
   resources :alerts
 

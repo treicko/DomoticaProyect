@@ -30,6 +30,7 @@
 			      <% else %>
 			      	<li><a href="/locations">Locaciones</a></li>
 			      	<li><a href="/thermostat_histories">Lecturas de Termostatos</a></li>
+			      	<li><a href="/alerts/alert_history_list/<%= current_user.id %>">Alertas <span class="badge"><%= (AlertHistory.where(:user_id => current_user.id, :state => 0)).count %></span></a></li>
 			      <% end %>
 			  <% end %>
 			</ul>

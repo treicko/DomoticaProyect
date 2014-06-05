@@ -18,3 +18,4 @@ class Thermostat < ActiveRecord::Base
 		end
 
 end
+
