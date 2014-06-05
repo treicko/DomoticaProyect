@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603004414) do
+ActiveRecord::Schema.define(version: 20140605021023) do
 
   create_table "alert_histories", force: true do |t|
     t.boolean  "state",         default: false, null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140603004414) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "temperature"
-    t.boolean  "configuration"
+    t.string   "configuration"
   end
 
   create_table "users", force: true do |t|

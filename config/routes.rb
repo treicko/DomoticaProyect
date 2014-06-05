@@ -44,12 +44,12 @@ DomoticaProyect::Application.routes.draw do
  delete   '/api/register/:id' =>   'thermostat_histories#destroy'
 
   #post '/thermostat_histories/create' => 'thermostat_histories#create'
-
+  get '/locations/:location_id/thermostats/config_temp/:id' => 'thermostats#configure_temperatures'
+  patch '/locations/:location_id/thermostats/set_config_temp/:id' => 'thermostats#set_temperatures'
   resources :locations do
     resources :thermostats  
   end
-  get '/locations/:location_id/thermostats/config_temp/:id' => 'thermostats#configure_temperatures'
-  post '/locations/:location_id/thermostats/set_config_temp/:id' => 'thermostats#set_temperatures'
+
 
 
   #get '/locations/:location_id/thermostats/readings/:id' => 'thermostats#show_readings'
