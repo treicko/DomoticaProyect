@@ -13,116 +13,116 @@ class SchedulesController < ApplicationController
 
         #@lista = Schedule.where(:thermostat_id => params[:id])
  
-        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 12:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:m12]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 13:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 17:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:m13]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 14:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 18:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:m14]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 15:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 19:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:m15]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "LUNES", time: "2014-05-28 20:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:m16]], :id => @id_temperature)        
 
 
-        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 12:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:tu12]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 13:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 17:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:tu13]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 14:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 18:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:tu14]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 15:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 19:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:tu15]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MARTES", time: "2014-05-28 20:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:tu16]], :id => @id_temperature)        
 
 
-        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 12:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:w12]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 13:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 17:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:w13]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 14:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 18:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:w14]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 15:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 19:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:w15]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "MIERCOLES", time: "2014-05-28 20:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:w16]], :id => @id_temperature)        
 
 
-        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 12:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:th12]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 13:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 17:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:th13]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 14:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 18:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:th14]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 15:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 19:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:th15]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "JUEVES", time: "2014-05-28 20:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:th16]], :id => @id_temperature)        
 
 
-        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 12:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:f12]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 13:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 17:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:f13]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 14:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 18:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:f14]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 15:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 19:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:f15]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "VIERNES", time: "2014-05-28 20:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:f16]], :id => @id_temperature)        
         
 
 
-        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 12:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:sa12]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 13:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 17:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:sa13]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 14:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 18:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:sa14]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 15:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 19:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:sa15]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "SABADO", time: "2014-05-28 20:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:sa16]], :id => @id_temperature)        
 
 
-        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 12:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:su12]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 13:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 17:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:su13]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 14:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 18:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:su14]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 15:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 19:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:su15]], :id => @id_temperature)        
  
-        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 16:00:00.000000", thermostat_id: params[:parent_id]).first.id
+        @id_temperature = Schedule.where(day: "DOMINGO", time: "2014-05-28 20:00:00.000000", thermostat_id: params[:parent_id]).first.id
         Schedule.update_all(["temperature = ?", params[:su16]], :id => @id_temperature)       
 
 
@@ -143,36 +143,36 @@ class SchedulesController < ApplicationController
 
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
-    @schedule.time = "2014-05-28 12:00:00"
-    @schedule.temperature = 25
+    @schedule.time = "2014-05-28 12:00:00.000000"
+    @schedule.temperature = 250
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 13:00:00"
-    @schedule.temperature = 25
+    @schedule.temperature = 250
     @schedule.thermostat_id = @thermostat.id
     @schedule.save  
       
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 14:00:00"
-    @schedule.temperature = 25
+    @schedule.temperature = 250
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 15:00:00"
-    @schedule.temperature = 25
+    @schedule.temperature = 250
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 16:00:00"
-    @schedule.temperature = 25
+    @schedule.temperature = 250
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 

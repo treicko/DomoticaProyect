@@ -82,6 +82,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', endColorstr='#42474f',GradientType=0 );
 }
 .trash {display:inline-block; background:#31363e; text-align:center; width:25%; box-shadow: 3px 1px 10px #000; cursor: pointer;}
+.franja {display:inline-block; background:#31363e; text-align:center; width:25%; box-shadow: 3px 1px 10px #000;}
 .active {background:#b1cfa1;} 
 
 </style>
@@ -100,11 +101,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
         <li class="mili">
             <span class="day">Lunes</span>
             <ul class="temps">
-                <li class="mili"><input id="m12" name="m12" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="m13" name="m13" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="m14" name="m14" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="m15" name="m15" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="m16" name="m16" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m12" name="m12" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m13" name="m13" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 17:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m14" name="m14" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 18:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m15" name="m15" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 19:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="m16" name="m16" class="circle" value="<%=@thermostat.get_valor('LUNES','2014-05-28 20:00:00.000000', @id_thermostat)%>" type="text"></li>
             </ul>
         </li>
     </ul>
@@ -112,11 +113,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
         <li class="mili">
             <span class="day">Martes</span>
             <ul class="temps">
-                <li class="mili"><input id="tu12" name="tu12" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="tu13" name="tu13" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="tu14" name="tu14" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="tu15" name="tu15" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="tu16" name="tu16" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu12" name="tu12" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu13" name="tu13" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 17:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu14" name="tu14" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 18:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu15" name="tu15" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 19:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="tu16" name="tu16" class="circle" value="<%=@thermostat.get_valor('MARTES','2014-05-28 20:00:00.000000', @id_thermostat)%>" type="text"></li>
             </ul>
         </li>
     </ul>
@@ -124,11 +125,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
         <li class="mili">
             <span class="day">Miercoles</span>
             <ul class="temps">
-                <li class="mili"><input id="w12" name="w12" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="w13" name="w13" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="w14" name="w14" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="w15" name="w15" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="w16" name="w16" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w12" name="w12" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w13" name="w13" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 17:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w14" name="w14" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 18:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w15" name="w15" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 19:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="w16" name="w16" class="circle" value="<%=@thermostat.get_valor('MIERCOLES','2014-05-28 20:00:00.000000', @id_thermostat)%>" type="text"></li>
             </ul>
         </li>
     </ul>
@@ -136,11 +137,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
         <li class="mili">
             <span class="day">Jueves</span>
             <ul class="temps">
-                <li class="mili"><input id="th12" name="th12" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="th13" name="th13" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="th14" name="th14" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="th15" name="th15" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="th16" name="th16" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th12" name="th12" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th13" name="th13" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 17:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th14" name="th14" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 18:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th15" name="th15" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 19:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="th16" name="th16" class="circle" value="<%=@thermostat.get_valor('JUEVES','2014-05-28 20:00:00.000000', @id_thermostat)%>" type="text"></li>
 
             </ul>
         </li>
@@ -149,11 +150,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
         <li class="mili">
             <span class="day">Viernes</span>
             <ul class="temps">
-                <li class="mili"><input id="f12" name="f12" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="f13" name="f13" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="f14" name="f14" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="f15" name="f15" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="f16" name="f16" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f12" name="f12" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f13" name="f13" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 17:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f14" name="f14" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 18:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f15" name="f15" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 19:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="f16" name="f16" class="circle" value="<%=@thermostat.get_valor('VIERNES','2014-05-28 20:00:00.000000', @id_thermostat)%>" type="text"></li>
 
             </ul>
         </li>
@@ -162,11 +163,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
         <li class="mili">
             <span class="day">Sabado</span>
             <ul class="temps">
-                <li class="mili"><input id="sa12" name="sa12" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="sa13" name="sa13" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="sa14" name="sa14" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="sa15" name="sa15" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="sa16" name="sa16" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa12" name="sa12" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa13" name="sa13" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 17:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa14" name="sa14" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 18:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa15" name="sa15" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 19:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="sa16" name="sa16" class="circle" value="<%=@thermostat.get_valor('SABADO','2014-05-28 20:00:00.000000', @id_thermostat)%>" type="text"></li>
 
             </ul>
         </li>
@@ -175,28 +176,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d5057', end
         <li class="mili">
             <span class="day">Domingo</span>
             <ul class="temps">
-                <li class="mili"><input id="su12" name="su12" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 12:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="su13" name="su13" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 13:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="su14" name="su14" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 14:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="su15" name="su15" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 15:00:00.000000', @id_thermostat)%>" type="text"></li>
-                <li class="mili"><input id="su16" name="su16" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su12" name="su12" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 16:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su13" name="su13" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 17:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su14" name="su14" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 18:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su15" name="su15" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 19:00:00.000000', @id_thermostat)%>" type="text"></li>
+                <li class="mili"><input id="su16" name="su16" class="circle" value="<%=@thermostat.get_valor('DOMINGO','2014-05-28 20:00:00.000000', @id_thermostat)%>" type="text"></li>
             </ul>
         </li>
     </ul>
     <ul class="top">
         <li class="mili">
-            <span class="trash">Franja horaria</span>
+            <span class="franja">Franja horaria</span>
             <ul class="temps">
-                <li class="mili">12 PM</li>
-                <li class="mili">13 PM</li>
-                <li class="mili">14 PM</li>
-                <li class="mili">15 PM</li>
                 <li class="mili">16 PM</li>
+                <li class="mili">17 PM</li>
+                <li class="mili">18 PM</li>
+                <li class="mili">19 PM</li>
+                <li class="mili">20 PM</li>
             </ul>
         </li>
     </ul>
     <%= hidden_field_tag(:parent_id, @id_thermostat)%>
-    <input type="submit">
+    <input type="submit" class="trash " value="Guardar temperaturas">
 </form>
 
 <script>
