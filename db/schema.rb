@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140605144636) do
+=======
+ActiveRecord::Schema.define(version: 20140605141746) do
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
 
   create_table "alert_histories", force: true do |t|
     t.boolean  "state",         default: false, null: false
@@ -44,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140605144636) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "days", force: true do |t|
     t.string   "name"
     t.integer  "temperatures_id"
@@ -57,10 +62,22 @@ ActiveRecord::Schema.define(version: 20140605144636) do
     t.string   "resolution",    default: "",        null: false
     t.string   "string",        default: "",        null: false
     t.integer  "thermostat_id"
+=======
+  create_table "issues", force: true do |t|
+    t.integer  "thermostat_id"
+    t.text     "description"
+    t.string   "status"
+    t.string   "resolution"
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
+=======
+  add_index "issues", ["thermostat_id"], name: "index_issues_on_thermostat_id"
+
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
   create_table "locations", force: true do |t|
     t.string   "address"
     t.integer  "user_id"

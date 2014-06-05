@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   description: MyString
   state: MyString
   resolution: MyString
@@ -11,3 +12,15 @@ two:
   state: MyString
   resolution: MyString
   thermostat_id: 1
+=======
+  thermostat_id: 
+  description: MyText
+  status: MyString
+  resolution: MyString
+
+two:
+  thermostat_id: 
+  description: MyText
+  status: MyString
+  resolution: MyString
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a

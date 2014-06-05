@@ -144,35 +144,35 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 12:00:00.000000"
-    @schedule.temperature = 250
+    @schedule.temperature = 25
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 13:00:00"
-    @schedule.temperature = 250
+    @schedule.temperature = 25
     @schedule.thermostat_id = @thermostat.id
     @schedule.save  
       
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 14:00:00"
-    @schedule.temperature = 250
+    @schedule.temperature = 25
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 15:00:00"
-    @schedule.temperature = 250
+    @schedule.temperature = 25
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 
     @schedule = Schedule.new
     @schedule.day = 'LUNES'
     @schedule.time = "2014-05-28 16:00:00"
-    @schedule.temperature = 250
+    @schedule.temperature = 25
     @schedule.thermostat_id = @thermostat.id
     @schedule.save
 

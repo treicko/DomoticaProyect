@@ -4,7 +4,15 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
+<<<<<<< HEAD
     @issues = Issue.all
+=======
+    if curren_user.rol="Usuario" 
+      @issues = Issue.where(thermostat_id: params[:thermostat_id])
+    else
+      @issues = Issue.where('status != ?' "ABIERTO")
+    end
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
   end
 
   # GET /issues/1
@@ -12,10 +20,17 @@ class IssuesController < ApplicationController
   def show
   end
 
+<<<<<<< HEAD
   # GET /issues/new
   def new
     @thermostat_id = params[:id]
     @issue = Issue.new 
+=======
+
+  # GET /issues/new
+  def new
+    @issue = Issue.new
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
   end
 
   # GET /issues/1/edit
@@ -38,6 +53,16 @@ class IssuesController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
+=======
+  def cancel
+    @issue=Issue.find(params[:id])
+    @issue.status='CANCELADO'
+    @issue.save
+    redirect_to('/issues')
+  end
+
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
   # PATCH/PUT /issues/1
   # PATCH/PUT /issues/1.json
   def update
@@ -52,6 +77,18 @@ class IssuesController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
+=======
+  def resolve
+    @issue=Issue.find(params[:id])
+  end
+
+  def solve
+    @issue=Issue.find(params[:id])
+    @issue.update(solve_params)
+  end
+
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
@@ -62,6 +99,7 @@ class IssuesController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def create_issue
     @issue = Issue.new
     @issue.thermostat_id = params[:thermostat_id]
@@ -101,6 +139,8 @@ class IssuesController < ApplicationController
     redirect_to '/issues'
   end
 
+=======
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_issue
@@ -109,6 +149,13 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
+<<<<<<< HEAD
       params.require(:issue).permit(:description, :state, :resolution, :thermostat_id)
+=======
+      params.require(:issue).permit(:thermostat_id, :description, :status, :resolution)
+    end
+     def solv_params
+      params.require(:issue).permit(:status, :resolution)
+>>>>>>> 14ec02d6ab8edcf7325845df6814134b1178ee8a
     end
 end

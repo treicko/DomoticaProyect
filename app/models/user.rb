@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :thermostats, :through => :locations, :source => :thermostats
   has_many :thermostat_histories, :through =>  :thermostats
   has_many :schedules, :through => :thermostats
+  has_many :issues, :through => :thermostats
   def self.with_role(role)
      my_role = Role.find_by_name(role)
      where(:role => my_role)
