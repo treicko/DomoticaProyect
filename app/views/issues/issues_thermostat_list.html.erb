@@ -31,9 +31,9 @@
             <td><%= issue.state %></td>
             <td><%= issue.resolution %></td>
             <td><% if issue.state!="CANCELADO" %><a href="/issues/cancel_issues_thermostat/<%= issue.id %>" class="btn btn-danger" > Cancelar </a><%end%></td>
-            <td><%= link_to 'Show', issue %></td>
-            <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-            <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Ver', issue %></td>
+            <td><%= link_to 'Editar', edit_issue_path(issue) %></td>
+            <td><%= link_to 'Eliminar', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

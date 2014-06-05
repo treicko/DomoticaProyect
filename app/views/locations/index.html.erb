@@ -51,20 +51,6 @@
                     <td><a href="/alerts/send_temperture/<%= t.id%>"> Reportar Temperatura </a></td>
                   </tr>
                   <tr>
-                    <td>
-                      <form action="/issues/new" method="get">
-                        <input type="hidden" name="thermostat_id" value ="<%= t.id%>"/>
-                        <input type="submit" value ="Agregar problema">
-                      </form>
-                    </td>
-                    <td>
-                      <form action="/issues" method="get">
-                        <input type="hidden" name="thermostat_id" value ="<%= t.id%>"/>
-                        <input type="submit" value ="Ver problema">
-                      </form>
-                    </td>
-                  </tr>
-                  <tr>
                     <td><a href="/issues/new/<%= t.id%>" class="btn btn-info"> Reportar Problema </a></td>
                   </tr>
                   <tr>
