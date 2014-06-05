@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @issue.description %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @issue.state %>
+</p>
+
+<p>
+  <strong>Resolution:</strong>
+  <%= @issue.resolution %>
+</p>
+
+<p>
+  <strong>Thermostat:</strong>
+  <%= @issue.thermostat_id %>
+</p>
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>

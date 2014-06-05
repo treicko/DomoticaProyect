@@ -50,6 +50,12 @@
                   <tr>
                     <td><a href="/alerts/send_temperture/<%= t.id%>"> Enviar Temperatura </a></td>
                   </tr>
+                  <tr>
+                    <td><a href="/issues/new/<%= t.id%>" class="btn btn-info"> Reportar Problema </a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="/issues/issues_thermostat_list/<%= t.id %>" class="btn btn-danger" > Ver Lista de Problemas </a></td>
+                  </tr>
                 </tbody>
               </table>
               </td>

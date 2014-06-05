@@ -24,7 +24,7 @@ protect_from_forgery except: :index
 	end
 
 	def save_setting_alert
-		@alert = Alert.new
+		@alert = Alert.new 
 		@alert.config_date = params[:fecha]
 		@alert.temperature = params[:temperatura]
 		@alert.interval = params[:intervalo]
@@ -55,12 +55,15 @@ protect_from_forgery except: :index
 			if alert.temperature<=@temperature
 				#@alertHistories = AlertHistory.where(:thermostat_id => alert.thermostat_id)
 				#if(@alertHistories.count>0)
-					#if(@alertHistories.last.active)
-					#	@time_new = Time.new
-					#	@histories_create = @alertHistories.last.created_at
-					#	@time_elapsed = (Time.new - @alertHistories.last.created_at).to_i
-					#	@alert_interval = (alert.interval-60)
-					#	@alert_id = alert.id
+				#	if(@alertHistories.last.active)
+				#		@time_new = Time.new
+				#		@histories_create = @alertHistories.last.created_at
+				#		@time_elapsed = (Time.new - @alertHistories.last.created_at).to_i
+				#		@alert_interval = (alert.interval-60).to_i
+				#		if @time_elapsed>@alert_interval
+				#			@es_mayor = true;
+				#		end
+				#		@alert_id = alert.id
 						#if verify_elapsed_time(@time_elapsed, alert.interval)
 						#	@alertHistory = AlertHistory.new
 						#	@alertHistory.thermostat_id = @thermostat_id
@@ -69,18 +72,22 @@ protect_from_forgery except: :index
 						#	@alertHistory.user_email = "treicko123@gmail.com"
 						#	@alertHistory.save
 						#end
-					#end
+
+				#	else
+						
+						@alertHistory = AlertHistory.new
+						@alertHistory.thermostat_id = @thermostat_id
+						@alertHistory.alert_id = alert.id
+						@alertHistory.user_id = current_user.id
+						@alertHistory.state = false
+						@alertHistory.message = "La Temperatura Actual Sobrepaso La Temperatura Establecida"
+						@alertHistory.user_email = "treicko123@gmail.com"
+						@alertHistory.active = true
+						@alertHistory.save
+				#	end
 				#end
 
-			 	@es_mayor = true;
-				@alertHistory = AlertHistory.new
-				@alertHistory.thermostat_id = @thermostat_id
-				@alertHistory.alert_id = alert.id
-				@alertHistory.user_id = current_user.id
-				@alertHistory.state = false
-				@alertHistory.message = "La Temperatura Actual Sobrepaso La Temperatura Establecida"
-				@alertHistory.user_email = "treicko123@gmail.com"
-				@alertHistory.save
+			 	
 
 			    #UserMailer.registration_confirmation(@alertHistory.user_email).deliver    
 			end
@@ -92,7 +99,7 @@ protect_from_forgery except: :index
 		#end
 
 		#UserMailer.registration_confirmation("").deliver
-		redirect_to '/locations'
+		#redirect_to '/locations'
 	end
 
 	def alert_history_list

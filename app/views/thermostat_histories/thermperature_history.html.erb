@@ -1,0 +1,53 @@
+<h1>Listing thermostat_histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serial</th>
+      <th>Locación</th>
+      <th>Usuario</th>
+      <th>Temperatura</th>
+      <th>Humedad</th>
+      <th>KW</th>
+      <th>Total KW x Dia</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thermostat_histories.each do |thermostat_history| %>
+      <% if current_user.rol=="Administrador" then%>
+      <tr>
+        
+        <td><%= thermostat_history.thermostat.serial_number %></td>
+        <td><%= thermostat_history.thermostat.place %></td>
+        <td><%= User.find(Location.find(Thermostat.find(thermostat_history.thermostat_id).location_id).user_id).email %></td>
+        <td><%= thermostat_history.temperature %></td>
+        <td><%= thermostat_history.humidity %></td>
+        <td><%= thermostat_history.consumption %></td>
+        <td><%= thermostat_history.consumption*24 %></td>
+
+      <% else %>
+        <% if User.find(Location.find(thermostat_history.thermostat.location_id).user_id).id==current_user.id %>
+        <tr>
+          
+          <td><%= thermostat_history.thermostat.serial_number %></td>
+          <td><%= thermostat_history.thermostat.place %></td>
+          <td><%#= User.find(Location.find(thermostat_history.thermostat.location_id).user_id).email %></td>
+          <td><%= thermostat_history.temperature %></td>
+          <td><%= thermostat_history.humidity %></td>
+          <td><%= thermostat_history.consumption %></td>
+          <td><%= thermostat_history.consumption*24 %></td>
+
+        
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<a href="/api/register/new"> Nuevo </a>

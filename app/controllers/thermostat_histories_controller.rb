@@ -65,10 +65,15 @@ class ThermostatHistoriesController < ApplicationController
     end
   end
 
- 
- 
+  def thermperature_history
 
 
+    @thermostat_histories = ThermostatHistory.all
+    #@thermostat_histories.each do |t|
+    #  t.destroy
+    #end
+  end
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
    # def set_thermostat_history

@@ -27,11 +27,14 @@
 			  <% if user_signed_in? %> 
 			      <% if current_user.rol=="Administrador" %>
 			      	<li><a href="/manager/users_list"></i>Usuarios</a></li>
+			      	<li><a href="/issues"></i>Reporte de Problemas</a></li>
 			      <% else %>
 			      	<li><a href="/locations">Locaciones</a></li>
 			      	<li><a href="/thermostat_histories">Lecturas de Termostatos</a></li>
 			      	<li><a href="/alerts/alert_history_list/<%= current_user.id %>">Alertas <span class="badge"><%= (AlertHistory.where(:user_id => current_user.id, :state => 0)).count %></span></a></li>
 			      <% end %>
+			      <!-- <li><a href="/thermostat_histories/thermperature_history"></i>Historial De Temperaturas</a></li> -->
+
 			  <% end %>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

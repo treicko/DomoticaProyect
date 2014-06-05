@@ -48,4 +48,8 @@ class ManagerController < ApplicationController
 		redirect_to '/manager/users_list'
 	end
 
+	def thermperature_history
+		
+	end 
+
 end

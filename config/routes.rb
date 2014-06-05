@@ -1,5 +1,15 @@
 DomoticaProyect::Application.routes.draw do
 
+  post '/issues/create_issue' => 'issues#create_issue'
+  post '/issues/save_resolve_issue' => 'issues#save_resolve_issue'
+  get '/issues/new/:id' =>  'issues#new'
+  get '/issues/issues_thermostat_list/:id' => 'issues#issues_thermostat_list'
+  get '/issues/cancel_issues_thermostat/:id' => 'issues#cancel_issues_thermostat'
+  get '/issues/resolve_issue/:id' => 'issues#resolve_issue'
+  get '/issues/open_issue/:id' => 'issues#open_issue'
+
+  resources :issues
+
   resources :schedules
 
   resources :clients
@@ -68,6 +78,9 @@ DomoticaProyect::Application.routes.draw do
 
   get '/temperatures/edit/:id' => 'temperatures#edit'
 
+  get 'thermostat_histories/thermperature_history' => 'thermostat_histories#thermperature_history' 
+  
+  #resources :ThermostatHistory
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
