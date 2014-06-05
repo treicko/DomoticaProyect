@@ -32,11 +32,8 @@
             <td><%= issue.description %></td>
             <td><%= issue.state %></td>
             <td><%= issue.resolution %></td>
-            <td><% if issue.state!="RESUELTO" %><a href="/issues/resolve_issue/<%= issue.id %>" class="btn btn-danger" > Resolver </a><%end%></td>
-            <td><% if issue.state=="RESUELTO" %><a href="/issues/open_issue/<%= issue.id %>" class="btn btn-danger" > Abrir </a><%end%></td>
-            <td><%= link_to 'Show', issue %></td>
-            <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-            <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><% if issue.state!="RESUELTO" %><a href="/issues/resolve_issue/<%= issue.id %>" class="btn btn-success" > Resolver </a><%end%></td>
+            <td><% if issue.state=="RESUELTO" %><a href="/issues/open_issue/<%= issue.id %>" class="btn btn-info" > Abrir </a><%end%></td>
           </tr>
           <%end%>
         <% end %>
