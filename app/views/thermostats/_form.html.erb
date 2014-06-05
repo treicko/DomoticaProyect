@@ -28,11 +28,13 @@
   </div>
 
   <div class="field">
+  <fieldset>
     <%= f.label "Configuracion Basica" %><br> 
-    <%= f.radio_button(:configuration, true) %>
+    <%= f.radio_button :configuration, "true" %>
     <%= f.label :configuration, "Si" %>
-    <%= f.radio_button(:configuration, false) %>
+    <%= f.radio_button :configuration, "false" %>
     <%= f.label :configuration, "No" %>
+  </fieldset>
   </div>
 
   <div class="actions">

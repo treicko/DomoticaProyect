@@ -27,10 +27,10 @@ class ThermostatsController < ApplicationController
   def set_temperatures
     @thermostat=Thermostat.find(params[:id])
     @thermostat.temperature = params[:temperature]
-    if @thermostat.save
+    if @thermostat.update(temperature_params)
       redirect_to('/')
     else
-      redirect_to('/thermostats/config_temp/:id/:location_id')
+      redirect_to('/locations/'+@thermostat.location.id.to_s+'/thermostats/config_temp/'+@thermostat.id.to_s)
     end
   end
 
@@ -92,7 +92,12 @@ class ThermostatsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   def thermostat_params
-    params.require(:thermostat).permit(:serial_number, :location_id, :place, :temperature, :configuration)
+    params.require(:thermostat).permit(:serial_number, :location_id,:place, :temperature, :configuration)
+  end
+
+  def temperature_params
+     params.require(:thermostat).permit(:temperature, :configuration)
+
   end
 
   #def show_configureTemp
