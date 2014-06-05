@@ -89,7 +89,7 @@ protect_from_forgery except: :index
 
 			 	
 
-			    UserMailer.registration_confirmation(@alertHistory.user_email).deliver    
+			    #UserMailer.registration_confirmation(@alertHistory.user_email).deliver    
 			end
 		end
 

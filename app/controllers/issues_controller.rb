@@ -57,7 +57,7 @@ class IssuesController < ApplicationController
   def destroy
     @issue.destroy
     respond_to do |format|
-      format.html { redirect_to issues_url }
+      format.html { redirect_to '/locations' }
       format.json { head :no_content }
     end
   end
