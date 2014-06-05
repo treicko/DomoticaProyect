@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 20140605144636) do
     t.datetime "updated_at"
   end
 
-  create_table "days", force: true do |t|
-    t.string   "name"
-    t.integer  "temperatures_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "issues", force: true do |t|
     t.string   "description"
     t.string   "state",         default: "ABIERTO", null: false
@@ -114,14 +107,6 @@ ActiveRecord::Schema.define(version: 20140605144636) do
     t.datetime "updated_at"
     t.integer  "temperature"
     t.string   "configuration"
-  end
-
-  create_table "triples", force: true do |t|
-    t.time     "start_time"
-    t.time     "end_time"
-    t.integer  "days_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
