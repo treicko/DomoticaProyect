@@ -66,27 +66,3 @@ class TemperatureRequest
   
   attr_accessor :status, :temperature
 end
-
-=begin
-def get_day(present_time)
-    if present_time.hour<12
-      day=present_time.wday-1
-    end
-    case day
-        when 1 then
-            return 'LUNES'
-        when 2 then
-            return 'MARTES'
-        when 3 then
-            return 'MIERCOLES'
-        when 4 then
-            return 'JUEVES'
-        when 5 then
-            return 'VIERNES'
-        when 6 then
-            return 'SABADO'
-        when 7 then
-            return 'DOMINGO'
-    end
-=end
-

@@ -78,8 +78,15 @@ class IssuesController < ApplicationController
   def cancel_issues_thermostat
     @my_issue = Issue.find(params[:id])
     @my_issue.state = "CANCELADO"
-    @my_issue.save
-    redirect_to '/locations'
+    respond_to do |format|
+      if @my_issue.save
+        #format.html { redirect_to '/', notice: 'Liked'}
+        format.json {render json:{:state => @my_issue.state}}
+      else
+        #format.html { redirect_to '/', notice: 'Error' }
+        format.json {render json:{:errors => @my_issue.errors}}
+      end
+    end
   end
 
   def resolve_issue

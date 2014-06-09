@@ -28,9 +28,9 @@
           <tr>
             <td><%= issue.thermostat_id %></td>
             <td><%= issue.description %></td>
-            <td><%= issue.state %></td>
+            <td><span id="state<%=issue.id%>"><%= issue.state %></span></td>
             <td><%= issue.resolution %></td>
-            <td><% if issue.state!="CANCELADO" %><a href="/issues/cancel_issues_thermostat/<%= issue.id %>" class="btn btn-danger" > Cancelar </a><%end%></td>
+            <td><% if issue.state!="CANCELADO" %><div class="btn btn-danger" id="<%=issue.id%>" > Cancelar </div><%end%></td>
             <td><%= link_to 'Ver', issue %></td>
             <td><%= link_to 'Editar', edit_issue_path(issue) %></td>
             <td><%= link_to 'Eliminar', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -44,3 +44,15 @@
     <%#= link_to 'New Issue', new_issue_path %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $(".btn.btn-danger").click( function() {
+      alert("Your book is overdue"); 
+      id = $(this).attr('id');
+      $.get('/issues/cancel_issues_thermostat/'+id+'.json', function(data){
+        $('#state'+id).html(data.state)
+      });
+    });
+  });
+</script>
