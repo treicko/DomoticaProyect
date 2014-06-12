@@ -48,8 +48,8 @@
 <script>
   $(document).ready(function() {
     $(".btn.btn-danger").click( function() {
-      alert("Your book is overdue"); 
       id = $(this).attr('id');
+      $(this).remove();
       $.get('/issues/cancel_issues_thermostat/'+id+'.json', function(data){
         $('#state'+id).html(data.state)
       });
