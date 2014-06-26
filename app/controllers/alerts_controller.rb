@@ -75,15 +75,26 @@ protect_from_forgery except: :index
 
 				#	else
 						
-						@alertHistory = AlertHistory.new
-						@alertHistory.thermostat_id = @thermostat_id
-						@alertHistory.alert_id = alert.id
-						@alertHistory.user_id = current_user.id
-						@alertHistory.state = false
-						@alertHistory.message = "La Temperatura Actual Sobrepaso La Temperatura Establecida"
-						@alertHistory.user_email = "treicko123@gmail.com"
-						@alertHistory.active = true
-						@alertHistory.save
+						@hora_actual = Time.new
+						@esta_a_tiempo = false
+						
+						if (@hora_actual.strftime("%H:%M:%S")>alert.config_time_initial.strftime("%H:%M:%S"))&&(@hora_actual.strftime("%H:%M:%S")<alert.config_time_final.strftime("%H:%M:%S"))
+							@esta_a_tiempo = true
+
+							@alertHistory = AlertHistory.new
+							@alertHistory.thermostat_id = @thermostat_id
+							@alertHistory.alert_id = alert.id
+							@alertHistory.user_id = current_user.id
+							@alertHistory.state = false
+							@alertHistory.message = "La Temperatura Actual Sobrepaso La Temperatura Establecida"
+							@alertHistory.user_email = "treicko123@gmail.com"
+							@alertHistory.active = true
+							@alertHistory.save
+
+						end
+
+
+						
 				#	end
 				#end
 
@@ -104,7 +115,7 @@ protect_from_forgery except: :index
 
 	def alert_history_list
 		@user_id = params[:id]
-		@alerts_user = AlertHistory.where(:user_id => @user_id, :state => 0)
+		@alerts_user = AlertHistory.where(:user_id => @user_id, :state => false)
 		@alerts_user.each do |alert|
 			alert.state = 1
 			alert.save

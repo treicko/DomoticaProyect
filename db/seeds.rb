@@ -8,3 +8,4 @@
 
 User.new({:email => "osvaldo@hotmail.com", :password => "123456789", :password_confirmation => "123456789", :rol =>"Usuario", :user_enable => true}).save(:validate =>false)
 User.new({:email => "admin@admin.com", :password => "12341234", :password_confirmation => "12341234", :rol =>"Administrador", :user_enable => true}).save(:validate =>false)
+Location.new({}).save

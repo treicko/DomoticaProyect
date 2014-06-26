@@ -15,12 +15,17 @@ intervalo d alerta: <%#=@alert_interval %>
 <br>
 id de alerta: <%#= @alert_id %> -->
 
+<br>
+Hora Actual: <%= @hora_actual %>
 
-<h1>Listing Alerts</h1>
+<br>
+Esta a Tiempo: <%= @esta_a_tiempo %>
+
+<h1>Historial de Alertas</h1>
  <table class="table">
   <thead>
     <tr>
-      <th>Fecha</th>
+      <th>Id Alerta</th>
       <th>Temperatura</th>
       <th>Intervalo</th>
       <th>Id_Thermostato</th>
@@ -34,10 +39,39 @@ id de alerta: <%#= @alert_id %> -->
       <tr>
         <td><%= alert.config_date %></td>
         <td><%= alert.temperature %></td>
-        <td><%= alert.interval %></td>
+        <td><%= alert.interval.strftime("%H:%M:%S") %> Hrs.</td>
         <td><%= alert.thermostat_id %></td>
-        <td><%= alert.config_time_initial %></td>
-        <td><%= alert.config_time_final %></td>
+        <td><%= alert.config_time_initial.strftime("%H:%M:%S") %></td>
+        <td><%= alert.config_time_final.strftime("%H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Listing Alerts</h1>
+ <table class="table">
+  <thead>
+    <tr>
+      <th>Id Alerta</th>
+      <th>Fecha</th>
+      <th>Temperatura</th>
+      <th>Intervalo</th>
+      <th>Id_Thermostato</th>
+      <th>Desde</th>
+      <th>Hasta</th>
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @alerts.each do |alert| %>
+      <tr>
+        <td><%= alert.id %></td>
+        <td><%= alert.config_date %></td>
+        <td><%= alert.temperature %></td>
+        <td><%= alert.interval.strftime("%H:%M:%S") %> Hrs.</td>
+        <td><%= alert.thermostat_id %></td>
+        <td><%= alert.config_time_initial.strftime("%H:%M:%S") %></td>
+        <td><%= alert.config_time_final.strftime("%H:%M:%S") %></td>
       </tr>
     <% end %>
   </tbody>
