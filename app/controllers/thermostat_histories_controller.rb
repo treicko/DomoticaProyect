@@ -32,6 +32,7 @@ class ThermostatHistoriesController < ApplicationController
       if @thermostat_history.save
         format.html { redirect_to @thermostat_history, notice: 'Thermostat history was successfully created.' }
         format.json { render action: 'show', status: :created}#, location: @thermostat_history }
+        @thermostat_history.check_temperature(@thermostat_history)
       else
         @status.status='Error'
         @status.message=@thermostat_history.errors

@@ -21,3 +21,19 @@
 		</tr>
 	</tbody>
 </table>
+
+<div class="date_select">
+	<%= form_for @thermostat, :url => {:action => "set_temperatures"} do |f| %>
+
+	<div class="field">
+	    
+	<%= f.label :start_date%>
+	<%= f.date_select%>
+	<%= f.label :end_date%>
+	<%= f.date_select :end_date, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }  %>
+
+    	<%= f.submit "Cambiar Temperatura" %>
+  	</div>
+
+<% end %>
+</div>

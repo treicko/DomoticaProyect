@@ -58,6 +58,7 @@ class ThermostatsController < ApplicationController
       if @thermostat.update(thermostat_params)
         format.html { redirect_to @thermostat, notice: 'Thermostat was successfully updated.' }
         format.json { head :no_content }
+        
       else
         format.html { render action: 'edit' }
         format.json { render json: @thermostat.errors, status: :unprocessable_entity }
@@ -107,3 +108,7 @@ class ThermostatsController < ApplicationController
 
 end
 
+=begin
+Client.where("created_at >= :start_date AND created_at <= :end_date",
+  {start_date: params[:start_date], end_date: params[:end_date]})
+=end

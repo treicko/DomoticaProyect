@@ -17,8 +17,9 @@ class TemperaturesController < ApplicationController
   end
 
   def get_day(present_time)
+    day=present_time.wday
     if present_time.hour<16
-      day=present_time.wday-1
+      day-=1
     end
     case day
         when 1 then
@@ -36,33 +37,22 @@ class TemperaturesController < ApplicationController
         when 7 then
             return 'DOMINGO'
     end
-end
+  end
 
 	def show_temperature_request
-    @temperature_request = TemperatureRequest.new
     @thermostat = current_user.thermostats.where(serial_number: params[:serial_number]).last
-    if @thermostat.configuration=="true"
-      @temperature_request.status='OK'
-      @temperature_request.temperature=@thermostat.temperature
-    else
-       @temperature_request.status='OK'
-       present_time=Time.now
-       day=get_day(present_time)
-       time=get_time(present_time)
-       @temperature_request.temperature= current_user.schedules.where(day: day).where(time: time).first.temperature
-    end
+   
     respond_to do |format|
-      format.json {render json: @temperature_request}
+      if @thermostat.configuration=="true"
+        format.json {render json: {:status => 'OK',:temperature => @thermostat.temperature}}
+      else
+         present_time=Time.now
+         day=get_day(present_time)
+         time=get_time(present_time)
+         format.json {render json: {:status => 'OK',:temperature => @thermostat.schedules.where(day: day).where(time: time).first.temperature}}
+         
+      end
     end
   end	
-end
 
-
-class TemperatureRequest
-  def initialize
-    @status= 'Error!'
-    @temperature= 'Error'
-  end
-  
-  attr_accessor :status, :temperature
 end

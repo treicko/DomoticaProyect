@@ -1,1 +1,1 @@
-json.extract! @thermostat, :id, :serial_number, :location_id, :place, :created_at, :updated_at
+json.extract! @thermostat, :id, :location_id, :place, :created_at, :updated_at
