@@ -43,74 +43,70 @@ protect_from_forgery except: :index
 		@es_mayor = false;
 		@thermostat_id = params[:thermostat_id]
 		@temperature = params[:temperatura].to_i
-
-		#@histories = Alert.all
-		#@histories.each do |histo|
-		#	histo.destroy
-		#end
-
+		@hora_actual = Time.new
 		@alerts = Alert.where(:thermostat_id => @thermostat_id)
-		
+		@alertHistoryList = Array.new
 		@alerts.each do |alert|
-			if alert.temperature<=@temperature
-				#@alertHistories = AlertHistory.where(:thermostat_id => alert.thermostat_id)
-				#if(@alertHistories.count>0)
-				#	if(@alertHistories.last.active)
-				#		@time_new = Time.new
-				#		@histories_create = @alertHistories.last.created_at
-				#		@time_elapsed = (Time.new - @alertHistories.last.created_at).to_i
-				#		@alert_interval = (alert.interval-60).to_i
-				#		if @time_elapsed>@alert_interval
-				#			@es_mayor = true;
-				#		end
-				#		@alert_id = alert.id
-						#if verify_elapsed_time(@time_elapsed, alert.interval)
-						#	@alertHistory = AlertHistory.new
-						#	@alertHistory.thermostat_id = @thermostat_id
-						#	@alertHistory.alert_id = alert.id
-						#	@alertHistory.message = "Alerta: La Temperatura Actual Sobrepaso La Temperatura Establecida"
-						#	@alertHistory.user_email = "treicko123@gmail.com"
-						#	@alertHistory.save
-						#end
+			if (alert.temperature<=@temperature)&&(alert.config_date.to_s==@hora_actual.strftime("%Y-%m-%d"))
 
-				#	else
-						
-						@hora_actual = Time.new
-						@esta_a_tiempo = false
-						
-						if (@hora_actual.strftime("%H:%M:%S")>alert.config_time_initial.strftime("%H:%M:%S"))&&(@hora_actual.strftime("%H:%M:%S")<alert.config_time_final.strftime("%H:%M:%S"))
-							@esta_a_tiempo = true
+				if (@hora_actual.strftime("%H:%M:%S")>=alert.config_time_initial.strftime("%H:%M:%S"))&&(@hora_actual.strftime("%H:%M:%S")<=alert.config_time_final.strftime("%H:%M:%S"))
+					if(AlertHistory.count==0)||(AlertHistory.last.active==false)
+						@alertHistory = AlertHistory.new
+						@alertHistory.thermostat_id = @thermostat_id
+						@alertHistory.alert_id = alert.id
+						@alertHistory.user_id = current_user.id
+						# visto o no visto
+						@alertHistory.state = true
+						@alertHistory.message = "La Temperatura Actual Sobrepaso La Temperatura Establecida"
+						@alertHistory.user_email = "treicko123@gmail.com"
+						# activo o no activo
+						@alertHistory.active = true
+						@alertHistory.save
 
-							@alertHistory = AlertHistory.new
-							@alertHistory.thermostat_id = @thermostat_id
-							@alertHistory.alert_id = alert.id
-							@alertHistory.user_id = current_user.id
+						@alertHistoryList.push(@alertHistory)
+					else
+
+						@segundos = (@hora_actual-AlertHistory.last.created_at)
+						@minutos = (@segundos/60).to_i #es el nÃºmero total de minutos
+						@horas = (@minutos/60).to_i #nÃºmero total de horas
+						@dias = (@horas/24).to_i # nÃºmero total de dÃ­as
+						@resultado = "#{@horas%24} hora/s y #{@minutos%60} minutos"
+
+						@string_hora = "#{@horas}:#{set_minutes(@minutos)}:#{set_seconds(@segundos.to_i)}"
+						@hora_string_hora = Time.parse(@string_hora)
+						if @hora_string_hora.strftime("%H:%M:%S")>=alert.interval.strftime("%H:%M:%S")
+						   		
+							@alertHistory = AlertHistory.last
 							@alertHistory.state = false
-							@alertHistory.message = "La Temperatura Actual Sobrepaso La Temperatura Establecida"
-							@alertHistory.user_email = "treicko123@gmail.com"
-							@alertHistory.active = true
+							@alertHistory.active = false
 							@alertHistory.save
+							@alertHistoryList.push(@alertHistory)
 
 						end
-
-
-						
+					end
+				end		
 				#	end
 				#end
-
-			 	
-
 			    #UserMailer.registration_confirmation(@alertHistory.user_email).deliver    
 			end
 		end
 
-		#@histories = AlertHistory.all
-		#@histories.each do |histo|
-		#	histo.destroy
-		#end
-
 		#UserMailer.registration_confirmation("").deliver
 		#redirect_to '/locations'
+	end
+
+	def set_minutes(minutos)
+		while minutos>59 do
+			minutos = minutos-60
+		end
+		return minutos
+	end
+
+	def set_seconds(segundos)
+		while segundos>59 do
+			segundos = segundos-60
+		end
+		return segundos
 	end
 
 	def alert_history_list

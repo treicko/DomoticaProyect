@@ -16,33 +16,57 @@ intervalo d alerta: <%#=@alert_interval %>
 id de alerta: <%#= @alert_id %> -->
 
 <br>
-Hora Actual: <%= @hora_actual %>
+Hora Actual: <%= @hora_actual.strftime("%Y-%m-%d") %>
 
 <br>
 Esta a Tiempo: <%= @esta_a_tiempo %>
+
+<br>
+Resta: <%= @resultado %>
+
+<br>
+res: <%= @dias %>-<%= @horas %>-<%= @minutos %>
+
+<br>
+Hora: <%= @horas %>
+
+<br>
+Minuto: <%= @minutos %>
+
+<br>
+Segundos: <%= @segundos.to_i %>
+
+<br>
+Hora string: <%= @string_hora %>
+
+<br>
+Hora Format: <%= @hora_string_hora %>
+
+<br>
+Saludo: <%= @nombre %>
 
 <h1>Historial de Alertas</h1>
  <table class="table">
   <thead>
     <tr>
+      <th>Id Alert History</th>
       <th>Id Alerta</th>
-      <th>Temperatura</th>
-      <th>Intervalo</th>
       <th>Id_Thermostato</th>
-      <th>Desde</th>
-      <th>Hasta</th>
+      <th>state</th>
+      <th>active</th>
+      <th>Creado en<th>
     </tr>
   </thead>
 
   <tbody >
-    <% @alerts.each do |alert| %>
+    <% @alertHistoryList.each do |alertHistory| %>
       <tr>
-        <td><%= alert.config_date %></td>
-        <td><%= alert.temperature %></td>
-        <td><%= alert.interval.strftime("%H:%M:%S") %> Hrs.</td>
-        <td><%= alert.thermostat_id %></td>
-        <td><%= alert.config_time_initial.strftime("%H:%M:%S") %></td>
-        <td><%= alert.config_time_final.strftime("%H:%M:%S") %></td>
+        <td><%= alertHistory.id %></td>
+        <td><%= alertHistory.alert_id %></td>
+        <td><%= alertHistory.thermostat_id %></td>
+        <td><%= alertHistory.state %></td>
+        <td><%= alertHistory.active %></td>
+        <td><%= alertHistory.created_at %></td>
       </tr>
     <% end %>
   </tbody>
