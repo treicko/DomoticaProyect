@@ -29,42 +29,43 @@ class ThermostatHistory < ActiveRecord::Base
 		@alerts.each do |alert|
 			if (alert.temperature<=@temperature)&&(alert.config_date.to_s==@hora_actual.strftime("%Y-%m-%d"))
 
-				if (@hora_actual.strftime("%H:%M:%S")>=alert.config_time_initial.strftime("%H:%M:%S"))&&(@hora_actual.strftime("%H:%M:%S")<=alert.config_time_final.strftime("%H:%M:%S"))
-					if(AlertHistory.count==0)||(AlertHistory.last.active==false)
+				#if (@hora_actual.strftime("%H:%M:%S")>=alert.config_time_initial.strftime("%H:%M:%S"))&&(@hora_actual.strftime("%H:%M:%S")<=alert.config_time_final.strftime("%H:%M:%S"))
+				#	if(AlertHistory.count==0)||(AlertHistory.last.active==false)
 						@alertHistory = AlertHistory.new
 						@alertHistory.thermostat_id = @thermostat_id
 						@alertHistory.alert_id = alert.id
-						@alertHistory.user_id = current_user.id
+						#@alertHistory.user_id = current_user.id
+						@alertHistory.user_id = Location.find(Thermostat.find(@thermostat_id).location_id).user_id
 						# visto o no visto
-						@alertHistory.state = true
+				#		@alertHistory.state = true
 						@alertHistory.message = "La Temperatura Actual Sobrepaso La Temperatura Establecida"
 						@alertHistory.user_email = "treicko123@gmail.com"
 						# activo o no activo
-						@alertHistory.active = true
-						@alertHistory.save
+				#		@alertHistory.active = true
+				#		@alertHistory.save
 
 						@alertHistoryList.push(@alertHistory)
-					else
+				#	else
 
-						@segundos = (@hora_actual-AlertHistory.last.created_at)
-						@minutos = (@segundos/60).to_i #es el nÃºmero total de minutos
-						@horas = (@minutos/60).to_i #nÃºmero total de horas
-						@dias = (@horas/24).to_i # nÃºmero total de dÃ­as
-						@resultado = "#{@horas%24} hora/s y #{@minutos%60} minutos"
+				#		@segundos = (@hora_actual-AlertHistory.last.created_at)
+				#		@minutos = (@segundos/60).to_i #es el nÃºmero total de minutos
+				#		@horas = (@minutos/60).to_i #nÃºmero total de horas
+				#		@dias = (@horas/24).to_i # nÃºmero total de dÃ­as
+				#		@resultado = "#{@horas%24} hora/s y #{@minutos%60} minutos"
 
-						@string_hora = "#{@horas}:#{set_minutes(@minutos)}:#{set_seconds(@segundos.to_i)}"
-						@hora_string_hora = Time.parse(@string_hora)
-						if @hora_string_hora.strftime("%H:%M:%S")>=alert.interval.strftime("%H:%M:%S")
-						   		
-							@alertHistory = AlertHistory.last
+				#		@string_hora = "#{@horas}:#{set_minutes(@minutos)}:#{set_seconds(@segundos.to_i)}"
+				#		@hora_string_hora = Time.parse(@string_hora)
+				#		if @hora_string_hora.strftime("%H:%M:%S")>=alert.interval.strftime("%H:%M:%S")
+				#		   		
+				#			@alertHistory = AlertHistory.last
 							@alertHistory.state = false
 							@alertHistory.active = false
 							@alertHistory.save
-							@alertHistoryList.push(@alertHistory)
+				#			@alertHistoryList.push(@alertHistory)
 
-						end
-					end
-				end		
+				#		end
+				#	end
+				#end		
 				#	end
 				#end
 			    #UserMailer.registration_confirmation(@alertHistory.user_email).deliver    
