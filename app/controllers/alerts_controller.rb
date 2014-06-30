@@ -35,26 +35,6 @@ protect_from_forgery except: :index
 		redirect_to '/alerts/alert_setting_list'
 	end
 
-	def send_temperture
-		@thermostat_id = params[:id]
-	end
-
-	
-
-	def set_minutes(minutos)
-		while minutos>59 do
-			minutos = minutos-60
-		end
-		return minutos
-	end
-
-	def set_seconds(segundos)
-		while segundos>59 do
-			segundos = segundos-60
-		end
-		return segundos
-	end
-
 	def alert_history_list
 		@user_id = params[:id]
 		@alerts_user = AlertHistory.where(:user_id => @user_id, :state => false)
