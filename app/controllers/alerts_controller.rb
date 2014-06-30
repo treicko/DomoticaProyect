@@ -40,6 +40,7 @@ protect_from_forgery except: :index
 	end
 
 	
+
 	def set_minutes(minutos)
 		while minutos>59 do
 			minutos = minutos-60
