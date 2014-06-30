@@ -1,4 +1,4 @@
-<h1>Listing Alerts</h1>
+<h1>Lista De Configuraciones</h1>
  <table class="table">
   <thead>
     <tr>
@@ -20,8 +20,8 @@
         <td><%= alert.temperature %></td>
         <td><%= alert.interval %></td>
         <td><%= alert.thermostat_id %></td>
-        <td><%= alert.config_time_initial %></td>
-        <td><%= alert.config_time_final %></td>
+        <td><%= alert.config_time_initial.strftime("%H:%M:%S Hrs.") %></td>
+        <td><%= alert.config_time_final.strftime("%H:%M:%S Hrs.") %></td>
         <td><a href="/alerts/alert_edit/<%=alert.id%>">Editar</a></td>
         <td><a href="/alerts/destroy/<%=alert.id%>">Eliminar</a></td>
       </tr>
