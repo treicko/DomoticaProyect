@@ -4,7 +4,7 @@ DomoticaProyect::Application.routes.draw do
   patch 'issues/:id/resolve' =>'issues#solve'
   resources :issues
 
-
+  get '/charts/location/:location_id/thermostat/:id' => 'thermostats#show_histories'
   post '/issues/create_issue' => 'issues#create_issue'
   post '/issues/save_resolve_issue' => 'issues#save_resolve_issue'
   get '/issues/new/:id' =>  'issues#new'

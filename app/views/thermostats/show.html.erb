@@ -22,18 +22,21 @@
 	</tbody>
 </table>
 
+
+
 <div class="date_select">
-	<%= form_for @thermostat, :url => {:action => "set_temperatures"} do |f| %>
-
-	<div class="field">
-	    
-	<%= f.label :start_date%>
-	<%= f.date_select%>
-	<%= f.label :end_date%>
-	<%= f.date_select :end_date, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }  %>
-
-    	<%= f.submit "Cambiar Temperatura" %>
-  	</div>
-
-<% end %>
+	<form action="/charts/location/<%=@thermostat.location.id%>/thermostat/<%=@thermostat.id%>" method="get">
+		<label class="control-label">Fecha Inicial: </label>
+		<br>
+		<input type="date" class="form-control" name="start_date"/>
+		<br>
+		<label class="control-label">Fecha Final: </label>
+		<br>
+		<input type="date" class="form-control" name="end_date"/>
+		<br>
+		<button type="submit" class="btn btn-primary" id="magic">Submit</button>
+	</form>
 </div>
+
+
+

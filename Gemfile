@@ -7,6 +7,8 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 
+gem 'lazy_high_charts'
+
 gem 'countries'
 
 gem 'wunderground'

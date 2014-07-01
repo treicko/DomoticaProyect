@@ -85,4 +85,29 @@ class ThermostatHistoriesController < ApplicationController
     def thermostat_history_params
       params.require(:thermostat_history).permit(:temperature, :temperature, :humidity, :consumption)
     end
+
+    def get_charts
+      Thermostat.find(params[:id].thermostat_histories.where("created_at >= :start_date AND created_at <= :end_date",
+        {start_date: params[:start_date], end_date: params[:end_date]})
+        @temperature_chart = LazyHighCharts::HighChart.new('graph') do |f|
+          f.title(:text => "Temperatura")
+          f.xAxis(:categories => ["United States", "Japan", "China", "Germany", "France"])
+          f.series(:name => "GDP in Billions", :yAxis => 0, :data => [14119, 5068, 4985, 3339, 2656])
+          f.series(:name => "Population in Millions", :yAxis => 1, :data => [310, 127, 1340, 81, 65])
+
+          f.yAxis [
+            {:title => {:text => "GDP in Billions", :margin => 70} },
+            {:title => {:text => "Population in Millions"}, :opposite => true},
+          ]
+
+          f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+          f.chart({:defaultSeriesType=>"column"})
+        end
+
+    end
 end
+
+=begin
+Client.where("created_at >= :start_date AND created_at <= :end_date",
+  {start_date: params[:start_date], end_date: params[:end_date]})
+=end
