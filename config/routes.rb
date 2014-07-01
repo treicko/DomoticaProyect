@@ -69,12 +69,10 @@ DomoticaProyect::Application.routes.draw do
 
   #get '/locations/:location_id/thermostats/readings/:id' => 'thermostats#show_readings'
 
-  post '/alerts/check_temperature' => 'alerts#check_temperature'
   post '/alerts/save_setting_alert' => 'alerts#save_setting_alert'
   get '/alerts/alert_setting_list' => 'alerts#alert_setting_list'
   get '/alerts/alert_list/:id' => 'alerts#alert_list'
   get '/alerts/setting_alert/:id' => 'alerts#setting_alert'
-  get '/alerts/send_temperture/:id' => 'alerts#send_temperture'
   get '/alerts/alert_edit/:id' => 'alerts#alert_edit'
   get '/alerts/destroy/:id' => 'alerts#destroy'
   get '/alerts/alert_history_list/:id' => 'alerts#alert_history_list'

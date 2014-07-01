@@ -21,7 +21,7 @@
                 <% @alert.each do |my_alert| %>
                   <tr>
                     <td><%= my_alert.temperature %></td>
-                    <td><%= my_alert.interval.strftime("%H:%M:%S Hrs.") %></td>
+                    <td><%= my_alert.interval %></td>
                     <td><%= my_alert.config_time_initial.strftime("%H:%M:%S Hrs.") %></td>
                     <td><%= my_alert.config_time_final.strftime("%H:%M:%S Hrs.") %></td>
                   </tr>
