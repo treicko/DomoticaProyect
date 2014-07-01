@@ -16,6 +16,29 @@ class ThermostatsController < ApplicationController
       @thermostat_history= ThermostatHistory.where(thermostat: @thermostat).last
   end 
 
+  def show_histories
+    @thermostat_histories=Thermostat.find(params[:id]).thermostat_histories.where("created_at >= :start_date AND created_at <= :end_date",{start_date: params[:start_date], end_date: params[:end_date]})
+    
+    
+
+    @temperature = LazyHighCharts::HighChart.new('graph') do |f|
+      f.xAxis(:categories => @thermostat_histories.collect {|x| x.created_at})
+      f.series(:type => 'spline', :name => 'Average', :data => @thermostat_histories.collect {|x| x.temperature}, :color => '#b20838', marker: {enabled: false})
+      f.legend({:align => 'right', :y => 10, :verticalAlign => 'top', :floating => "true", :borderWidth => 0})
+    end
+    @humidity = LazyHighCharts::HighChart.new('graph') do |f|
+      f.xAxis(:categories => @thermostat_histories.collect {|x| x.created_at})
+      f.series(:type => 'spline', :name => 'Average', :data => @thermostat_histories.collect {|x| x.humidity}, :color => '#b20838', marker: {enabled: false})
+      f.legend({:align => 'right', :y => 10, :verticalAlign => 'top', :floating => "true", :borderWidth => 0})
+    end
+
+    @consumption = LazyHighCharts::HighChart.new('graph') do |f|
+      f.xAxis(:categories => @thermostat_histories.collect {|x| x.created_at})
+      f.series(:type => 'spline', :name => 'Average', :data => @thermostat_histories.collect {|x| x.consumption}, :color => '#b20838', marker: {enabled: false})
+      f.legend({:align => 'right', :y => 10, :verticalAlign => 'top', :floating => "true", :borderWidth => 0})
+    end  
+  end
+
   # GET /thermostats/new
   def new
     @thermostat = Thermostat.new
@@ -104,11 +127,5 @@ class ThermostatsController < ApplicationController
   #def show_configureTemp
   #   @thermostat = Post.find(params[:id])
   #end
-
-
 end
 
-=begin
-Client.where("created_at >= :start_date AND created_at <= :end_date",
-  {start_date: params[:start_date], end_date: params[:end_date]})
-=end
