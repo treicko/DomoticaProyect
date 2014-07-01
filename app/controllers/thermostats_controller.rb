@@ -116,7 +116,7 @@ class ThermostatsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   def thermostat_params
-    params.require(:thermostat).permit(:serial_number, :location_id,:place, :temperature, :configuration)
+    params.require(:thermostat).permit(:serial_number, :location_id,:place, :temperature, :configuration, :category_ids => [])
   end
 
   def temperature_params
